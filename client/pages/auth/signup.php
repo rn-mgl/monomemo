@@ -1,9 +1,10 @@
-<?php include_once("../components/header.comp.php") ?>
+<?php include_once("../../components/header.comp.php") ?>
 
 <?php
 
 if (isset($_SESSION["signupError"])) {
     echo "<div class='message-dropdown error-message'>" . $_SESSION["signupError"] . "</div>";
+    $_SESSION["signupError"] = null;
 }
 
 ?>

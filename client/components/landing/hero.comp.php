@@ -11,8 +11,8 @@
         </div>
 
         <div id="hero-auth-buttons-wrapper">
-            <a href="/client/pages/login.php" class="hero-auth-buttons" id="login-button">Log In</a>
-            <a href="/client/pages/signup.php" class="hero-auth-buttons" id="signup-button">Sign Up</a>
+            <a href="/client/pages/auth/login.php" class="hero-auth-buttons" id="login-button">Log In</a>
+            <a href="/client/pages/auth/signup.php" class="hero-auth-buttons" id="signup-button">Sign Up</a>
         </div>
     </div>
 </div>

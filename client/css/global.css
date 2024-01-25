@@ -54,6 +54,9 @@ body {
     color: var(--accent);
 }
 
+button {
+    cursor: pointer;
+}
 
 #logo-container {
     display: flex;
