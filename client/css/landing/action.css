@@ -1,0 +1,134 @@
+#action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 100vh;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    #action {
+       padding: 2rem;
+    }
+}
+
+#action-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    margin: auto 0px;
+}
+
+@media screen and (min-width: 768px) {
+    #action-wrapper {
+       gap: 2rem;
+    }
+}
+
+
+.action-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#action-main-tagline {
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+
+@media screen and (min-width:768px) {
+    #action-main-tagline {
+        font-size: 3rem
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #action-main-tagline {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    #action-main-tagline {
+        font-size: 4rem;
+    }
+}
+
+#action-sub-tagline {
+    font-weight: 400;
+    font-size: 1rem;
+    text-wrap: wrap;
+    width: 100%;
+}
+
+#action-sub-tagline br {
+    display: none;
+}
+
+@media screen and (min-width: 425px) {
+    #action-sub-tagline {
+        font-size: 1rem;
+    }
+}
+ 
+@media screen and (min-width:768px) {
+    #action-sub-tagline {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #action-sub-tagline br{
+        display: flex;
+    }
+}
+
+
+#action-auth-buttons-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+@media screen and (min-width:768px) {
+    #action-auth-buttons-wrapper {
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+.action-auth-buttons {
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 0.4rem;
+}
+
+@media screen and (min-width:768px) {
+    .action-auth-buttons {
+        width: 8rem;
+        font-size: 1rem;
+    }
+}
+
+#start-now-button {
+    border: 0.1rem solid var(--primary-purple-highlight);
+    background: var(--primary-purple-highlight);
+}
+
+

@@ -1,0 +1,14 @@
+{
+    "name": "rein/monomemo",
+    "description": "Note web app",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.9.1"
+    },
+    "authors": [
+        {
+            "name": "rn-mgl",
+            "email": "reinb2ra@gmail.com"
+        }
+    ]
+}

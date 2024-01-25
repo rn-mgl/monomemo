@@ -1,0 +1,149 @@
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    #hero {
+       padding: 2rem;
+    }
+}
+
+#hero-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    margin: auto 0px;
+}
+
+@media screen and (min-width: 768px) {
+    #hero-wrapper {
+       gap: 2rem;
+    }
+}
+
+
+.hero-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#hero-main-tagline {
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+@media screen and (min-width: 425px) {
+    #hero-main-tagline {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width:768px) {
+    #hero-main-tagline {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #hero-main-tagline {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    #hero-main-tagline {
+        font-size: 4rem;
+    }
+}
+
+.text-green-gradient {
+    background-image: linear-gradient(to right,   
+                        var( --secondary-green-highlight), 
+                        var(--accent-green-highlight));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-purple-gradient {
+    background-image: linear-gradient(to right,   
+                        var( --secondary-purple-highlight), 
+                        var(--accent-purple-highlight));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#hero-sub-tagline {
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-wrap: wrap;
+    width: 100%;
+}
+
+@media screen and (min-width: 425px) {
+    #hero-sub-tagline {
+        font-size: 1rem;
+    }
+}
+ 
+@media screen and (min-width:768px) {
+    #hero-sub-tagline {
+        font-size: 1.2rem;
+    }
+}
+
+#hero-auth-buttons-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+@media screen and (min-width:768px) {
+    #hero-auth-buttons-wrapper {
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+.hero-auth-buttons {
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 0.4rem;
+}
+
+@media screen and (min-width:768px) {
+    .hero-auth-buttons {
+        width: 8rem;
+        font-size: 1rem;
+    }
+}
+
+#login-button {
+    border: 0.1rem solid var(--secondary-green-highlight);
+    color: var(--secondary-green-highlight);
+}
+
+#signup-button {
+    border: 0.1rem solid var(--primary-purple-highlight);
+    background: var(--primary-purple-highlight);
+}
+
+

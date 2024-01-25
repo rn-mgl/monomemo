@@ -1,0 +1,11 @@
+@keyframes float {
+    0% {translate: 0px 5%;}
+    50% {translate: 0px -5%;}
+    100% {translate: 0px 5%;}
+}
+
+@keyframes dropDown {
+    0% {translate: 0% -100%;}
+    50% {translate: 0% 5%;}
+    100% {translate: 0% 0%;}
+}
