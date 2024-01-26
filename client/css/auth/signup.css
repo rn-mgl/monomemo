@@ -8,6 +8,15 @@
     gap: 4rem;
 }
 
+.signup-form {
+    background: rgba(69, 196, 177, 0.2);
+    border: 0.1rem solid rgba(69, 196, 177, 0.5);
+}
+
+.signup-title {
+    color: var(--secondary-green-highlight);
+}
+
 .signup-input {
     border: 0.1rem solid var(--secondary-green-highlight)
 }
@@ -23,21 +32,9 @@
 }
 
 #signup-accent-block {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
     background: linear-gradient(to bottom right, var(--accent-green-highlight), var(--primary-green-highlight)) ;
-    height: 10rem;
-    z-index: 0;
 }
 
-@media screen and (min-width: 1024px) {
-    #signup-accent-block {
-        position: absolute;
-        right: 0;
-        width: 16rem;
-        background: linear-gradient(to bottom right, var(--accent-green-highlight), var(--primary-green-highlight)) ;
-        height: 100%;
-        z-index: 0;
-    }
+.signup-image {
+    filter: drop-shadow(0 4px 3px rgb(69, 196, 176, .5)) drop-shadow(0 2px 2px rgb(69, 196, 176, .5));
 }

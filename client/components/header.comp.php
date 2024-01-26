@@ -1,5 +1,10 @@
 <?php
 session_start();
+include_once(__DIR__ . "/../../vendor/autoload.php");
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__ . "/../../");
+$dotenv->safeload();
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +29,9 @@ session_start();
 
 	<link rel="stylesheet" href="/client/css/auth/auth.css">
 	<link rel="stylesheet" href="/client/css/auth/signup.css">
+	<link rel="stylesheet" href="/client/css/auth/verify.css">
+	<link rel="stylesheet" href="/client/css/auth/login.css">
+
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=1, initial-scale=1.0">

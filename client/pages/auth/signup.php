@@ -11,11 +11,11 @@ if (isset($_SESSION["signupError"])) {
 
 <div id="signup">
 
-    <form class="auth-form" action="/server/routers/signup.route.php" method="post">
+    <form class="auth-form signup-form" action="/server/routers/signup.route.php" method="post">
 
         <div class="auth-text-wrapper">
             <p class="auth-greetings">Welcome to MonoMemo,</p>
-            <p class="auth-title">Sign Up</p>
+            <p class="auth-title signup-title">Sign Up</p>
         </div>
 
         <div class="auth-label-input-wrapper">
@@ -41,7 +41,7 @@ if (isset($_SESSION["signupError"])) {
         <button type="submit" class="signup-submit" name="submit">Submit</button>
     </form>
 
-    <div id="signup-accent-block"></div>
+    <div class="accent-block" id="signup-accent-block"></div>
 
-    <img src="/client/public/svg/signUp.svg" class="auth-image" />
+    <img src="/client/public/svg/signUp.svg" class="auth-image signup-image" />
 </div>
