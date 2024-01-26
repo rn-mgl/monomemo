@@ -1,6 +1,8 @@
-<?php include_once("../../components/header.comp.php") ?>
-
 <?php
+
+include_once("../../components/global/header.comp.php");
+
+include_once("../../components/global/logo.comp.php");
 
 if (isset($_SESSION["signupError"])) {
     echo "<div class='message-dropdown error-message'>" . $_SESSION["signupError"] . "</div>";
@@ -11,7 +13,7 @@ if (isset($_SESSION["signupError"])) {
 
 <div id="signup">
 
-    <form class="auth-form signup-form" action="/server/routers/signup.route.php" method="post">
+    <form class="auth-form signup-form" action="/server/routers/auth/signup.route.php" method="post">
 
         <div class="auth-text-wrapper">
             <p class="auth-greetings">Welcome to MonoMemo,</p>

@@ -1,5 +1,5 @@
 <?php
-include_once("../../client/components/header.comp.php");
+include_once("../../../client/components/global/header.comp.php");
 include_once("../../server/database/conn.php");
 include_once("../utils/mailer.php");
 

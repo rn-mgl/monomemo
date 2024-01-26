@@ -1,6 +1,8 @@
-<?php include_once("../../components/header.comp.php") ?>
-
 <?php
+
+include_once("../../components/global/header.comp.php");
+
+include_once("../../components/global/logo.comp.php");
 
 if (isset($_SESSION["verifyError"])) {
     echo "<div class='message-dropdown error-message'>" . $_SESSION["verifyError"] . "</div>";
@@ -10,7 +12,7 @@ if (isset($_SESSION["verifyError"])) {
 ?>
 
 <div id="verify">
-    <form class="auth-form verify-form" action="/server/routers/verify.route.php" method="post">
+    <form class="auth-form verify-form" action="/server/routers/auth/verify.route.php" method="post">
 
         <div class="auth-text-wrapper">
             <p class="auth-greetings">Welcome to MonoMemo,</p>

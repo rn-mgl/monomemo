@@ -1,5 +1,5 @@
 <?php
 
-include_once("../../components/header.comp.php");
+include_once("../../components/global/sidenav.comp.php");
 
 ?>

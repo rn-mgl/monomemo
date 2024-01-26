@@ -1,6 +1,8 @@
-<?php include_once("../../components/header.comp.php") ?>
-
 <?php
+
+include_once("../../components/global/header.comp.php");
+
+include_once("../../components/global/logo.comp.php");
 
 if (isset($_SESSION["loginError"])) {
     echo "<div class='message-dropdown error-message'>" . $_SESSION["loginError"] . "</div>";
@@ -11,7 +13,7 @@ if (isset($_SESSION["loginError"])) {
 
 <div id="login">
 
-    <form class="auth-form login-form" action="/server/routers/login.route.php" method="post">
+    <form class="auth-form login-form" action="/server/routers/auth/login.route.php" method="post">
 
         <div class="auth-text-wrapper">
             <p class="auth-greetings">Welcome back to MonoMemo,</p>

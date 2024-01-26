@@ -58,6 +58,11 @@ button {
     cursor: pointer;
 }
 
+a {
+    text-decoration: none;
+    color: var(--accent);
+}
+
 #logo-container {
     display: flex;
     flex-direction: row;
@@ -123,3 +128,4 @@ button {
     border: 0.2rem solid red;
     background: rgb(61, 0, 0)
 }
+

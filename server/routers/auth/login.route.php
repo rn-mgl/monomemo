@@ -1,6 +1,6 @@
 <?php
-include_once("../../client/components/header.comp.php");
-include_once("../database/conn.php");
+include_once("../../../client/components/global/header.comp.php");
+include_once("../../database/conn.php");
 
 if (isset($_POST["submit"])) {
 
