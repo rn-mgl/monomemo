@@ -63,6 +63,10 @@ a {
     color: var(--accent);
 }
 
+i {
+    font-size: larger;
+}
+
 #logo-container {
     display: flex;
     flex-direction: row;

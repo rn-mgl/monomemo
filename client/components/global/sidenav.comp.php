@@ -3,48 +3,50 @@
 <div id="sidenav">
     <div class="sidenav-wrapper">
         <div id="sidenav-logo-container" draggable="false">
-            <button class="bar-sidenav-button" onclick="func()"><i class="fa-solid fa-bars"></i></button>
+            <button class="sidenav-button" id="sidenav-close-button"><i class="fa-solid fa-xmark"></i></button>
 
             <a id="logo" href="/client/pages/home.php">
                 <img src="/client/public/images/logo.png" alt="logo" width="25" height="25">
-                <p>Mono<span class="text-green-gradient">Me</span><span class="text-purple-gradient">mo</span></p>
+                <p>Mono<span class="text-green-gradient">me</span><span class="text-purple-gradient">mo</span></p>
             </a>
         </div>
 
         <div class="sidenav-link-wrapper">
-            <div class="sidenav-link">
-                <a href="/client/pages/monomemo/home.php">
-                    Home
-                </a>
+
+            <a href="/client/pages/monomemo/home.php" class="sidenav-link">
+                Home
                 <i class="fa-solid fa-house"></i>
-            </div>
+            </a>
 
-            <div class="sidenav-link">
-                <a href="/client/pages/monomemo/home.php">
-                    Home
-                </a>
-            </div>
+            <a href="/client/pages/monomemo/notes.php" class="sidenav-link">
+                Notes
 
-            <div class="sidenav-link">
-                <a href="/client/pages/monomemo/home.php">
-                    Home
-                </a>
-            </div>
+                <i class="fa-solid fa-note-sticky"></i>
+            </a>
 
-            <div class="sidenav-link">
-                <a href="/client/pages/monomemo/home.php">
-                    Home
-                </a>
-            </div>
+            <a href="/client/pages/monomemo/folders.php" class="sidenav-link">
+                Folders
 
-            <div class="sidenav-link">
-                <a href="/client/pages/monomemo/home.php">
-                    Log Out
-                </a>
-            </div>
+                <i class="fa-solid fa-folder-open"></i>
+            </a>
+
+            <a href="/client/pages/monomemo/profile.php" class="sidenav-link">
+                Profile
+
+                <i class="fa-solid fa-user"></i>
+            </a>
+
+
+            <a href="/server/routers/auth/logout.route.php" class="sidenav-link">
+                Log Out
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+
+
         </div>
     </div>
 
-
-
 </div>
+
+<button class="sidenav-button" id="sidenav-open-button"><i class="fa-solid fa-bars"></i></button>

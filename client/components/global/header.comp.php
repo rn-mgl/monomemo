@@ -42,7 +42,7 @@ $dotenv->safeload();
 
 	<link rel="stylesheet" href="/client/css/global/sidenav.css">
 
-	<script src="../../js/prac.js" type="text/javascript"></script>
+	<script src="../../js/jQuery.js" type="text/javascript"></script>
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=1, initial-scale=1.0">
