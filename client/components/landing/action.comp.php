@@ -11,7 +11,7 @@
         </div>
 
         <div id="action-auth-buttons-wrapper">
-            <a href="/client/pages/signup.php" class="action-auth-buttons" id="start-now-button">Start Now</a>
+            <a href="/client/pages/auth/signup.php" class="action-auth-buttons" id="start-now-button">Start Now</a>
         </div>
     </div>
 </div>

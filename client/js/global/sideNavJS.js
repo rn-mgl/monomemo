@@ -1,4 +1,4 @@
-$(document).ready(function ()  {
+jQuery(function() {
     $window = $(window);
 
     $("#sidenav-close-button").on("click", function ()  {
@@ -8,12 +8,12 @@ $(document).ready(function ()  {
 
     $("#sidenav-open-button").on("click", function ()  {
         $sidenav = $("#sidenav");
-        $sidenav.animate({left : "+=100vw"}, 100)
+        $sidenav.animate({left : "0"}, 100)
     })
 
     $(".sidenav-link").each(function () {
         const url = window.location.href;
-        const linkURL = $(this).find("a").attr("href");
+        const linkURL = $(this).attr("href");
         if (url.includes(linkURL)) {
             $(this).toggleClass("selected");
         }
@@ -23,6 +23,6 @@ $(document).ready(function ()  {
         $(".sidenav-link").removeClass("selected");
         $(this).toggleClass("selected");
     })
-
 })
+
 

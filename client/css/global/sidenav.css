@@ -102,10 +102,7 @@
 .sidenav-link.selected {
     background-image: linear-gradient(to bottom right, var(--secondary-green-highlight), var(--secondary-purple-highlight));
     color: var(--primary);
-    a {
-        color: var(--primary);
-        font-weight: 700;
-    }
+    font-weight: bold;
 }
 
 #sidenav-open-button {

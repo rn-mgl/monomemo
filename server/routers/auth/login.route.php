@@ -1,5 +1,4 @@
 <?php
-include_once("../../../client/components/global/header.comp.php");
 include_once("../../database/conn.php");
 
 if (isset($_POST["submit"])) {
@@ -29,6 +28,10 @@ if (isset($_POST["submit"])) {
                 $_SESSION["loginError"] = "Incorrect password";
                 die();
             }
+        } else {
+            header("Location: /client/pages/auth/login.php");
+            $_SESSION["loginError"] = "Incorrect credentials";
+            die();
         }
     } catch (Exception $e) {
         header("Location: /client/pages/auth/login.php");
