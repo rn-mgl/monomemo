@@ -15,13 +15,13 @@ jQuery(function() {
         const url = window.location.href;
         const linkURL = $(this).attr("href");
         if (url.includes(linkURL)) {
-            $(this).toggleClass("selected");
+            $(this).toggleClass("navlink-selected");
         }
     }) 
 
     $(".sidenav-link").on("click", function () {
-        $(".sidenav-link").removeClass("selected");
-        $(this).toggleClass("selected");
+        $(".sidenav-link").removeClass("navlink-selected");
+        $(this).toggleClass("navlink-selected");
     })
 })
 

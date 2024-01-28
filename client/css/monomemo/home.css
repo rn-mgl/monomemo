@@ -1,0 +1,51 @@
+#monomemo-home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.add-button-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.add-button {
+    background: var(--secondary);
+    border: none;
+    outline: none;
+    color: var(--accent);
+    padding: 1rem;
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0rem 0rem 0.5rem var(--shadow);
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+.add-button-selected {
+    background-image: linear-gradient(to bottom right, var(--secondary-green-highlight), var(--secondary-purple-highlight));
+    color: var(--primary);
+}
+
+.file-button {
+    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+    
+}

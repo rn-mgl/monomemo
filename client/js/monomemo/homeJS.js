@@ -1,11 +1,18 @@
 jQuery(function() {
     $.ajax({
         type: "GET",
-        async: true,
         url: "/server/routers/monomemo/home.route.php",
-        dataType: "html",
+        dataType: "json",
         success: function (response) {
-            $("#container").html(response)
-        }
+            console.log(JSON.parse(response));
+        },
     });
+
+    $("#plus-button").on("click", function() {
+        this.animate({rotate : "90deg"}, 100);
+        $(this).toggleClass("add-button-selected");
+        $(".file-button").each(function(index, $button) {
+            $(this).slideToggle((index + 1) * 50)
+        })
+    })
 })

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once(__DIR__ . "/../../../vendor/autoload.php");
 use Dotenv\Dotenv;
 
@@ -41,6 +40,7 @@ $dotenv->safeload();
 	<link rel="stylesheet" href="/client/css/auth/login.css">
 
 	<link rel="stylesheet" href="/client/css/global/sidenav.css">
+	<link rel="stylesheet" href="/client/css/monomemo/home.css">
 
 	<script src="../../js/global/sideNavJS.js"></script>
 
