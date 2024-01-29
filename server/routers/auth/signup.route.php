@@ -35,6 +35,7 @@ if (isset($_POST["submit"])) {
             $_SESSION["surname"] = $surname;
             $_SESSION["email"] = $email;
             $_SESSION["uuid"] = $uuid;
+            $_SESSION["id"] = $conn->insert_id;
 
             sendVerificationMail($name, $surname, $email, $verificationCode);
 

@@ -49,7 +49,7 @@
     max-width: 90%;
     height: 100%;
     padding: 1rem;
-    box-shadow: 0rem 0.5rem 0.5rem black;
+    box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
     z-index: 5;
     background: var(--primary);
 }

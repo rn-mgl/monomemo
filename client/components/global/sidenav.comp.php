@@ -16,7 +16,7 @@
         <div id="sidenav-logo-container" draggable="false">
             <button class="sidenav-button" id="sidenav-close-button"><i class="fa-solid fa-xmark"></i></button>
 
-            <a id="logo" href="/client/pages/home.php">
+            <a id="logo" href="/client/pages/monomemo/home.php">
                 <img src="/client/public/images/logo.png" alt="logo" width="25" height="25">
                 <p>Mono<span class="text-green-gradient">me</span><span class="text-purple-gradient">mo</span></p>
             </a>

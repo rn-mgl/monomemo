@@ -1,5 +1,5 @@
 .file-form-container {
-    display: flex;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -11,10 +11,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: linear-gradient(to bottom right, rgb(69, 196, 176, 0.2),rgb(157, 133, 242, 0.2));
 }
 
 .create-file-form {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: start;
     justify-content: center;
@@ -24,8 +25,6 @@
     border-radius: 0.8rem;
     margin: auto 0px; 
     max-width: 768px;
-    border: 0.1rem solid var(--secondary-purple-highlight);
-    background-image: linear-gradient(to bottom right, rgb(189, 174, 242, 0.5), rgb(111, 75, 242, 0.5));
     z-index: 1;
 }
 
@@ -38,13 +37,20 @@
 
 .create-file-form-close-button {
     background: none;
-    width: fit-content;
     border: none;
     outline: none;
     color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+    border-radius: 100%;
+}
+
+.create-file-form-close-button:hover {
+    box-shadow: 0rem 0.2rem 0.5rem var(--shadow);
 }
 
 @media screen and (min-width:768px) {
@@ -61,13 +67,18 @@
     width: 100%;
 }
 
-.create-file-form button[type="submit"] {
+.file-form-submit {
     width: 100%;
     padding: 0.5rem;
     border-radius: 0.4rem;
     border: none;
     outline: none;
     font-size: 1rem;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+.file-form-submit:hover {
+    box-shadow: 0rem 0.2rem 0.5rem var(--shadow);
 }
 
 .create-file-label-wrapper label {
@@ -89,10 +100,17 @@
     transition-duration: .15s;
 }
 
+#create-note-form {
+    border: 0.1rem solid var(--secondary-purple-highlight);
+    background-image: linear-gradient(to bottom right, rgb(189, 174, 242, 0.5), rgb(157, 133, 242, 0.5));
+}
+
 .create-note-title-input,
 .create-note-content-input
  {
     border: 0.1rem solid var(--secondary-purple-highlight);
+    background: var(--primary);
+    color: var(--accent);
 }
 
 .create-note-title-input:focus,
@@ -102,6 +120,30 @@
 
 #create-note-submit {
     background: var(--primary-purple-highlight);
+    font-weight: bold;
+    color: white; 
+}
+
+#create-folder-form {
+    border: 0.1rem solid var(--secondary-green-highlight);
+    background-image: linear-gradient(to bottom right, rgb(218, 253, 186, 0.5), rgb(69, 196, 176, 0.5));
+}
+
+.create-folder-title-input,
+.create-folder-content-input
+ {
+    border: 0.1rem solid var(--secondary-green-highlight);
+    background: var(--primary);
+    color: var(--accent);
+}
+
+.create-folder-title-input:focus,
+.create-folder-content-input:focus {
+    border-bottom: 0.2rem solid var(--secondary-green-highlight);
+}
+
+#create-folder-submit {
+    background: var(--primary-green-highlight);
     font-weight: bold;
     color: white; 
 }

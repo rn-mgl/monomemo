@@ -22,6 +22,7 @@ if (isset($_POST["submit"])) {
                 $_SESSION["name"] = $row["user_name"];
                 $_SESSION["surname"] = $row["user_surname"];
                 $_SESSION["email"] = $row["user_email"];
+                $_SESSION["id"] = $row["user_id"];
 
                 header("Location: /client/pages/monomemo/home.php");
                 die();
