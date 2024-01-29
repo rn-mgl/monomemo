@@ -1,5 +1,7 @@
 <?php
+include_once(__DIR__ . "/../../vendor/autoload.php");
 
+use Dotenv\Dotenv;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -7,17 +9,20 @@ require_once("../../vendor/phpmailer/phpmailer/src/Exception.php");
 require_once("../../vendor/phpmailer/phpmailer/src/PHPMailer.php");
 require_once("../../vendor/phpmailer/phpmailer/src/SMTP.php");
 
+$dotenv = Dotenv::createImmutable(__DIR__ . "/../../");
+$dotenv->safeload();
+
 function sendVerificationMail($name, $surname, $emailTo, $verificationCode)
 {
     try {
         $mail = new PHPMailer(true);
         $mail->isSMTP();
-        $mail->Host = "smtp.gmail.com";
+        $mail->Host = $_ENV["MAILER_HOST"];
         $mail->SMTPAuth = true;
-        $mail->Username = "rltnslns@gmail.com";
-        $mail->Password = "ccul pcfs gfxk eyel";
-        $mail->SMTPSecure = "ssl";
-        $mail->Port = 465;
+        $mail->Username = $_ENV["MAILER_USER"];
+        $mail->Password = $_ENV["MAILER_PASS"];
+        $mail->SMTPSecure = $_ENV["MAILER_SECURE"];
+        $mail->Port = $_ENV["MAILER_PORT"];
 
         $mail->setFrom("rltnslns@gmail.com");
         $mail->addAddress($emailTo);

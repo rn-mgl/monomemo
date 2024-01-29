@@ -11,8 +11,6 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
 
 <div id="monomemo-home">
 
-    <div></div>
-
     <form action=""></form>
 
     <div class="add-button-container">
@@ -22,5 +20,3 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
     </div>
 
 </div>
-
-<script src="../../js/monomemo/homeJS.js" type="text/javascript"></script>

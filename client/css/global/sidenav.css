@@ -1,3 +1,31 @@
+#topnav {
+    width: 100%;
+    display:  flex;
+    align-items: center;
+    justify-content: start;
+    padding: 1rem;
+    border-bottom: 1px solid var(--secondary);
+    gap: 2rem;
+}
+
+#greetings-container {
+    display: none;
+    line-height: 1.5ch;
+}
+
+#greetings-container p:first-of-type {
+    font-size: 0.8rem;
+}
+
+@media screen and (min-width: 768px) {
+    #greetings-container {
+        display:  flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
 #sidenav {
     display:  flex;
     align-items: start;
@@ -107,11 +135,4 @@
     background-image: linear-gradient(to bottom right, var(--secondary-green-highlight), var(--secondary-purple-highlight));
     color: var(--primary);
     font-weight: bold;
-}
-
-#sidenav-open-button {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 0;
 }

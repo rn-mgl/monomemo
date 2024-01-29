@@ -84,7 +84,7 @@
 @media screen and (min-width: 1024px) {
     .accent-block {
         right: 0;
-        width: 20rem;
+        width: 25rem;
         height: 100%;
         z-index: 0;
     }

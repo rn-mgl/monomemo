@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
         $checkQuery = "SELECT * FROM users WHERE user_email = ?;";
         $checkResult = $conn->execute_query($checkQuery, [$candidateEmail]);
 
-        if (mysqli_num_rows($checkResult) > 0) {
+        if ($checkResult->num_rows > 0) {
             $row = mysqli_fetch_assoc($checkResult);
             $password = $row["user_password"];
             $isCorrect = password_verify($candidatePassword, $password);

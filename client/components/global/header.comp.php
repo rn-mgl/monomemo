@@ -1,11 +1,3 @@
-<?php
-include_once(__DIR__ . "/../../../vendor/autoload.php");
-use Dotenv\Dotenv;
-
-$dotenv = Dotenv::createImmutable(__DIR__ . "/../../../");
-$dotenv->safeload();
-?>
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -30,6 +22,7 @@ $dotenv->safeload();
 	<link rel="stylesheet" href="/client/css/global.css">
 	<link rel="stylesheet" href="/client/css/animate.css">
 
+	<link rel="stylesheet" href="/client/css/landing/index.css">
 	<link rel="stylesheet" href="/client/css/landing/hero.css">
 	<link rel="stylesheet" href="/client/css/landing/offers.css">
 	<link rel="stylesheet" href="/client/css/landing/action.css">
@@ -42,10 +35,8 @@ $dotenv->safeload();
 	<link rel="stylesheet" href="/client/css/global/sidenav.css">
 	<link rel="stylesheet" href="/client/css/monomemo/home.css">
 
-	<script src="../../js/global/sideNavJS.js"></script>
-
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=1, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>MonoMemo</title>
 </head>
 

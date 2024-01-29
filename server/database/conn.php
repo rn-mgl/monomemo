@@ -1,6 +1,13 @@
 <?php
+include_once(__DIR__ . "/../../vendor/autoload.php");
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__ . "/../../");
+$dotenv->safeload();
+?>
+
+<?php
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-include_once("../../../client/components/global/header.comp.php");
 
 if (isset($_ENV["DB_HOST"]) && isset($_ENV["DB_USER"]) && isset($_ENV["DB_PASS"]) && isset($_ENV["DB_NAME"])) {
     $dbhost = $_ENV["DB_HOST"];

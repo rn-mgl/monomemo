@@ -1,5 +1,13 @@
 <?php include_once("../../components/global/header.comp.php"); ?>
 
+<div id="topnav">
+    <button class="sidenav-button" id="sidenav-open-button">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    <div id="greetings-container">
+    </div>
+</div>
+
 <div id="sidenav">
     <div class="sidenav-wrapper">
         <div id="sidenav-logo-container" draggable="false">
@@ -14,39 +22,32 @@
         <div class="sidenav-link-wrapper">
 
             <a href="/client/pages/monomemo/home.php" class="sidenav-link">
-                Home
+                <span class="sidenav-link-label">Home</span>
                 <i class="fa-solid fa-house"></i>
             </a>
 
             <a href="/client/pages/monomemo/notes.php" class="sidenav-link">
-                Notes
-
+                <span class="sidenav-link-label">Notes</span>
                 <i class="fa-solid fa-note-sticky"></i>
             </a>
 
             <a href="/client/pages/monomemo/folders.php" class="sidenav-link">
-                Folders
-
+                <span class="sidenav-link-label">Folders</span>
                 <i class="fa-solid fa-folder-open"></i>
             </a>
 
             <a href="/client/pages/monomemo/profile.php" class="sidenav-link">
-                Profile
-
+                <span class="sidenav-link-label">Profile</span>
                 <i class="fa-solid fa-user"></i>
             </a>
 
-
             <a href="/server/routers/auth/logout.route.php" class="sidenav-link">
-                Log Out
-
+                <span class="sidenav-link-label">Log Out</span>
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </a>
 
-
         </div>
     </div>
-
 </div>
 
-<button class="sidenav-button" id="sidenav-open-button"><i class="fa-solid fa-bars"></i></button>
+<script src="../../js/global/sideNavJS.js" type="text/javascript"></script>

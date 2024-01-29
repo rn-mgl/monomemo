@@ -40,12 +40,9 @@ html {
 body {
     background: var(--primary);
     position: relative;
-
-    max-width: 1440px;
     margin: 0px auto;
     width: 100%;
     height: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,3 +130,18 @@ i {
     background: rgb(61, 0, 0)
 }
 
+.text-green-gradient {
+    background-image: linear-gradient(to right,   
+                        var( --secondary-green-highlight), 
+                        var(--accent-green-highlight));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-purple-gradient {
+    background-image: linear-gradient(to right,   
+                        var( --secondary-purple-highlight), 
+                        var(--accent-purple-highlight));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
