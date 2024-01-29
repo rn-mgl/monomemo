@@ -11,7 +11,27 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
 
 <div id="monomemo-home">
 
-    <form action=""></form>
+    <div class="file-form-container">
+        <form action="../../../server/routers/monomemo/note.route.php" method="post" id="create-note-form"
+            class="create-file-form">
+            <div class="create-file-form-title-wrapper">
+                <p>Create Note</p>
+                <button class="create-file-form-close-button"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="create-file-label-wrapper">
+                <label for="noteTitle">Title</label>
+                <input type="text" name="noteTitle" class="create-note-title-input" id="noteTitle">
+            </div>
+
+            <div class="create-file-label-wrapper">
+                <label for="noteContent">Content</label>
+                <textarea name="noteContent" class="create-note-content-input" id="noteContent" rows=10></textarea>
+            </div>
+
+            <button type="submit" id="create-note-submit">Create</button>
+        </form>
+    </div>
 
     <div class="add-button-container">
         <button class="add-button file-button" id="note-button"><i class="fa-solid fa-note-sticky"></i></button>
@@ -20,3 +40,5 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
     </div>
 
 </div>
+
+<script src="../../js/monomemo/homeJS.js"></script>

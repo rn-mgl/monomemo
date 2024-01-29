@@ -3,7 +3,7 @@ jQuery(function() {
 
     $.ajax({
         type: "GET",
-        url: "/server/routers/monomemo/home.route.php",
+        url: "/server/routers/global/sidenav.route.php",
         dataType: "json",
         success: function (response) {
             const userData = response

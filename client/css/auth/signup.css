@@ -7,6 +7,7 @@
     height: 100vh;
     gap: 4rem;
     max-width: 1440px;
+    padding: 1rem;
 }
 
 .signup-form {

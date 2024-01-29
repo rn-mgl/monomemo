@@ -6,6 +6,9 @@
     </button>
     <div id="greetings-container">
     </div>
+    <a href="/client/pages/monomemo/profile.php" id="profile-link">
+
+    </a>
 </div>
 
 <div id="sidenav">
@@ -34,11 +37,6 @@
             <a href="/client/pages/monomemo/folders.php" class="sidenav-link">
                 <span class="sidenav-link-label">Folders</span>
                 <i class="fa-solid fa-folder-open"></i>
-            </a>
-
-            <a href="/client/pages/monomemo/profile.php" class="sidenav-link">
-                <span class="sidenav-link-label">Profile</span>
-                <i class="fa-solid fa-user"></i>
             </a>
 
             <a href="/server/routers/auth/logout.route.php" class="sidenav-link">

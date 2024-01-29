@@ -1,0 +1,107 @@
+.file-form-container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    z-index: 6;
+    backdrop-filter: blur(8px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-file-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    margin: auto 0px; 
+    max-width: 768px;
+    border: 0.1rem solid var(--secondary-purple-highlight);
+    background-image: linear-gradient(to bottom right, rgb(189, 174, 242, 0.5), rgb(111, 75, 242, 0.5));
+    z-index: 1;
+}
+
+.create-file-form-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.create-file-form-close-button {
+    background: none;
+    width: fit-content;
+    border: none;
+    outline: none;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width:768px) {
+    .create-file-form {
+        width: 60%;
+    }
+}
+
+.create-file-label-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100%;
+}
+
+.create-file-form button[type="submit"] {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.create-file-label-wrapper label {
+    margin-right: auto;
+    font-size: 0.8rem;
+}
+
+.create-file-label-wrapper input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.4rem;
+}
+
+.create-file-label-wrapper input:focus, textarea:focus {
+    outline: none;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+}
+
+.create-note-title-input,
+.create-note-content-input
+ {
+    border: 0.1rem solid var(--secondary-purple-highlight);
+}
+
+.create-note-title-input:focus,
+.create-note-content-input:focus {
+    border-bottom: 0.2rem solid var(--secondary-purple-highlight);
+}
+
+#create-note-submit {
+    background: var(--primary-purple-highlight);
+    font-weight: bold;
+    color: white; 
+}

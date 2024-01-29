@@ -6,6 +6,7 @@
     padding: 1rem;
     border-bottom: 1px solid var(--secondary);
     gap: 2rem;
+    z-index: 4;
 }
 
 #greetings-container {
@@ -15,6 +16,16 @@
 
 #greetings-container p:first-of-type {
     font-size: 0.8rem;
+}
+
+#profile-link {
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    min-height: 2rem;
+    border-radius: 100%;
+    background-image: linear-gradient(to bottom right, var(--accent-purple-highlight), var(--primary-purple-highlight));
+    margin-left: auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -39,7 +50,7 @@
     height: 100%;
     padding: 1rem;
     box-shadow: 0rem 0.5rem 0.5rem black;
-    z-index: 1;
+    z-index: 5;
     background: var(--primary);
 }
 

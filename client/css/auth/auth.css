@@ -4,7 +4,7 @@
     align-items: start;
     justify-content: center;
     gap: 1rem;
-    width: 90%;
+    width: 100%;
     padding: 1rem;
     border-radius: 0.8rem;
     margin: auto 0px; 
@@ -62,7 +62,7 @@
 .auth-label-input-wrapper input:focus {
     outline: none;
     box-shadow: none;
-    transition-property: all;
+    transition-property: all ;
     transition-timing-function: cubic-bezier(.4,0,.2,1);
     transition-duration: .15s;
 }
@@ -84,7 +84,7 @@
 @media screen and (min-width: 1024px) {
     .accent-block {
         right: 0;
-        width: 25rem;
+        width: 20rem;
         height: 100%;
         z-index: 0;
     }

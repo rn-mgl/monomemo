@@ -34,6 +34,8 @@
 
 	<link rel="stylesheet" href="/client/css/global/sidenav.css">
 	<link rel="stylesheet" href="/client/css/monomemo/home.css">
+	<link rel="stylesheet" href="/client/css/monomemo/form.css">
+
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">

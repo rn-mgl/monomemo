@@ -7,6 +7,7 @@
     height: 100vh;
     gap: 4rem;
     max-width: 1440px;
+    padding: 1rem;
 }
 
 .login-form {
@@ -26,7 +27,7 @@
     border-bottom: 0.2rem solid var(--secondary-purple-highlight)
 }
 
-.login-submit {
+#login-submit {
     background: var(--primary-purple-highlight);
     font-weight: bold;
     color: white; 

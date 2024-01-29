@@ -30,7 +30,7 @@ if (isset($_SESSION["loginError"])) {
             <input type="password" name="password" id="password" class="login-input" placeholder="Enter your Password">
         </div>
 
-        <button type="submit" class="login-submit" name="submit">Submit</button>
+        <button type="submit" id="login-submit" name="submit">Submit</button>
     </form>
 
     <div class="accent-block" id="login-accent-block"></div>
