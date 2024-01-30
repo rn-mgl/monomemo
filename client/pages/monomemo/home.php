@@ -11,7 +11,8 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
 
 <div id="monomemo-home">
 
-    <div class="file-container"></div>
+    <div class="file-container">
+    </div>
 
     <div class="file-form-container">
         <form method="post" id="create-note-form" class="create-file-form">

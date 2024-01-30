@@ -1,10 +1,10 @@
 jQuery(function() {
     $("#plus-button").on("click", function() {
-        this.animate({rotate : "90deg"}, 100);
+        this.animate({rotate : "90deg"}, 200);
         $(this).toggleClass("add-button-selected");
         $(".file-button").each(function(index, $button) {
             $(this).slideToggle((index + 1) * 50)
-    })
+        })
     })
 
     $("#note-button").on("click", function () {
@@ -51,12 +51,8 @@ jQuery(function() {
         createFolders(mappedFolderData)
     })
 
-    $(".note-card-container").on("click", function (e) {
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-
-        console.log(1);
-        console.log($(this));
+    $(".file-container").on("click", ".note-card-container", function (e) {
+   console.log(e);
     })
 
     getFiles()
@@ -96,7 +92,7 @@ function getFiles() {
         success: function (response) {
             const mappedFolders = response.map((fileData, index) => {
                 return fileData.type === "note" ? 
-                `<div class="note-card-container" key=${index}>
+                `<div class="note-card-container">
                     <p class="note-card-title">${fileData.title ? fileData.title : ""}</p>
                     <p class="note-card-content">
                     ${fileData.content ? fileData.content : "No Content"}
@@ -104,8 +100,7 @@ function getFiles() {
                 </div>` 
             : 
                 `<a class="folder-card-container" 
-                    href="/client/pages/monomemo/folders.php?folder_uuid=${fileData.uuid}" 
-                    key=${index}>
+                    href="/client/pages/monomemo/folders.php?folder_uuid=${fileData.uuid}" >
                     <p class="folder-card-title">${fileData.title ? fileData.title : ""}</p>
                 </a>` 
             }) 
