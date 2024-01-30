@@ -19,6 +19,9 @@ function getNote(noteUUID) {
             $("#single-note")
                 .html(
                 `
+                <a href=${response.note_from ? `/client/pages/monomemo/folder.php?folder_uuid=${response.folder_uuid}` : "/client/pages/monomemo/note.php"}>
+                    <i class="fa-solid fa-xmark"></i>
+                </a>
                 <div id="single-note-wrapper">
                     <textarea id="single-note-title" placeholder="No Title">${response.note_title}</textarea>
                     <textarea id="single-note-content" placeholder="No Content">${response.note_content}</textarea>

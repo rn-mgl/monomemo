@@ -51,6 +51,7 @@
     height: 90vh;
     padding: 1rem;
     max-width: 768px;
+    gap: 1rem;
 }
 
 #single-note-wrapper {

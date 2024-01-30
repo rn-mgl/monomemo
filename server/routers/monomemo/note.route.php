@@ -26,7 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userID = $_SESSION["id"];
         $noteUUID = $_GET["note_uuid"];
         try {
-            $query = "SELECT * FROM notes WHERE note_uuid = ?;";
+            $query = "SELECT * FROM notes AS n
+                    LEFT JOIN folders AS f
+                    ON n.note_from = f.folder_id
+                    WHERE note_uuid = ?;";
             $result = $conn->execute_query($query, [$noteUUID]);
 
             if ($result->num_rows > 0) {
