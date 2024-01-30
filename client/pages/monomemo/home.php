@@ -50,8 +50,6 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
         </form>
     </div>
 
-
-
     <div class="add-button-container">
         <button class="add-button file-button" id="note-button"><i class="fa-solid fa-note-sticky"></i></button>
         <button class="add-button file-button" id="folder-button"><i class="fa-solid fa-folder-open"></i></button>
@@ -61,4 +59,3 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
 </div>
 
 <script src="../../js/monomemo/homeJS.js"></script>
-<!-- <script src="../../js/monomemo/noteJS.js"></script> -->

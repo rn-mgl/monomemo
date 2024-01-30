@@ -18,11 +18,17 @@
 
 .folder-card-container:hover {
     box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
+    border: thick solid var(--accent);
 }
 
 .folder-card-title {
     font-size: 1.2rem;
     font-weight: 500;
+}
+
+.folder-card-title:empty::before {
+    content: "No Title";
+    opacity: 0.5;
 }
 
 .folder-card-content {

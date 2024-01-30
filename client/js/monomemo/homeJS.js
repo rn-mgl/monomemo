@@ -35,7 +35,6 @@ jQuery(function() {
         e.preventDefault()
         const $noteData = $(this).serializeArray()
         const mappedNoteData = {};
-
         jQuery.map($noteData, function(data, index) {
             mappedNoteData[data.name] = data.value;
         })
@@ -47,10 +46,17 @@ jQuery(function() {
         const $folderData = $(this).serializeArray();
         const mappedFolderData = {};
         jQuery.map($folderData, function(data, index) {
-            
             mappedFolderData[data.name]=  data.value;
         })
         createFolders(mappedFolderData)
+    })
+
+    $(".note-card-container").on("click", function (e) {
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+
+        console.log(1);
+        console.log($(this));
     })
 
     getFiles()
@@ -89,20 +95,20 @@ function getFiles() {
         dataType: "json",
         success: function (response) {
             const mappedFolders = response.map((fileData, index) => {
-                return `<div class="${fileData.type}-card-container" key=${index}>
-                        ${fileData.type === "note" ? 
-                            `<p class="${fileData.type}-card-title">
-                                ${fileData.title ? fileData.title : "No Title"}
-                            </p>
-                            <p class="${fileData.type}-card-content">
-                                ${fileData.content ? fileData.content : "No Content"}
-                            </p>` 
-                            : 
-                            `<p class="${fileData.type}-card-title">
-                                ${fileData.title ? fileData.title : "No Title"}
-                            </p>` }
-                
-                         </div>`});
+                return fileData.type === "note" ? 
+                `<div class="note-card-container" key=${index}>
+                    <p class="note-card-title">${fileData.title ? fileData.title : ""}</p>
+                    <p class="note-card-content">
+                    ${fileData.content ? fileData.content : "No Content"}
+                    </p>
+                </div>` 
+            : 
+                `<a class="folder-card-container" 
+                    href="/client/pages/monomemo/folders.php?folder_uuid=${fileData.uuid}" 
+                    key=${index}>
+                    <p class="folder-card-title">${fileData.title ? fileData.title : ""}</p>
+                </a>` 
+            }) 
             $(".file-container").html(mappedFolders);
         },
         error : function(re) {
