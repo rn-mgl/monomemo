@@ -34,16 +34,15 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
                 class="file-form-submit">Create</button>
         </form>
 
-        <form action="../../../server/routers/monomemo/note.route.php" method="post" id="create-folder-form"
-            class="create-file-form">
+        <form method="post" id="create-folder-form" class="create-file-form">
             <div class="create-file-form-title-wrapper">
                 <p>Create Folder</p>
                 <button type="button" class="create-file-form-close-button"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
             <div class="create-file-label-wrapper">
-                <label for="folderTitle">Title</label>
-                <input type="text" name="folderTitle" class="create-folder-title-input" id="folderTitle">
+                <label for="folderName">Title</label>
+                <input type="text" name="folderName" class="create-folder-title-input" id="folderName">
             </div>
 
             <button type="submit" id="create-folder-submit" name="createFormSubmit"
@@ -62,4 +61,4 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
 </div>
 
 <script src="../../js/monomemo/homeJS.js"></script>
-<script src="../../js/monomemo/noteJS.js"></script>
+<!-- <script src="../../js/monomemo/noteJS.js"></script> -->

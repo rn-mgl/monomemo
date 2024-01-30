@@ -36,7 +36,7 @@
 	<link rel="stylesheet" href="/client/css/monomemo/home.css">
 	<link rel="stylesheet" href="/client/css/monomemo/form.css">
 	<link rel="stylesheet" href="/client/css/monomemo/note.css">
-
+	<link rel="stylesheet" href="/client/css/monomemo/folder.css">
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
