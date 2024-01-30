@@ -51,10 +51,6 @@ jQuery(function() {
         createFolders(mappedFolderData)
     })
 
-    $(".file-container").on("click", ".note-card-container", function (e) {
-   console.log(e);
-    })
-
     getFiles()
 })
 
@@ -92,15 +88,16 @@ function getFiles() {
         success: function (response) {
             const mappedFolders = response.map((fileData, index) => {
                 return fileData.type === "note" ? 
-                `<div class="note-card-container">
+                `<a class="note-card-container" 
+                    href="/client/pages/monomemo/note.php?note_uuid=${fileData.uuid}">
                     <p class="note-card-title">${fileData.title ? fileData.title : ""}</p>
                     <p class="note-card-content">
                     ${fileData.content ? fileData.content : "No Content"}
                     </p>
-                </div>` 
+                </a>` 
             : 
                 `<a class="folder-card-container" 
-                    href="/client/pages/monomemo/folders.php?folder_uuid=${fileData.uuid}" >
+                    href="/client/pages/monomemo/folder.php?folder_uuid=${fileData.uuid}" >
                     <p class="folder-card-title">${fileData.title ? fileData.title : ""}</p>
                 </a>` 
             }) 

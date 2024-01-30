@@ -29,12 +29,12 @@
                 <i class="fa-solid fa-house"></i>
             </a>
 
-            <a href="/client/pages/monomemo/notes.php" class="sidenav-link">
+            <a href="/client/pages/monomemo/note.php" class="sidenav-link">
                 <span class="sidenav-link-label">Notes</span>
                 <i class="fa-solid fa-note-sticky"></i>
             </a>
 
-            <a href="/client/pages/monomemo/folders.php" class="sidenav-link">
+            <a href="/client/pages/monomemo/folder.php" class="sidenav-link">
                 <span class="sidenav-link-label">Folders</span>
                 <i class="fa-solid fa-folder-open"></i>
             </a>

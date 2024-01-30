@@ -41,3 +41,44 @@
     white-space: nowrap;
 
 }
+
+#single-note {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    padding: 1rem;
+    max-width: 768px;
+}
+
+#single-note-wrapper {
+    border: thin solid var(--accent);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+
+#single-note-title {
+    font-weight: 600;
+    background: var(--primary);
+    border: none;
+    color: var(--accent);
+}
+
+#single-note-content {
+    font-weight: 300;
+    white-space: pre-wrap;
+    height: 100%;
+    background: var(--primary);
+    border: none;
+    color: var(--accent);
+}
+

@@ -1,44 +1,29 @@
 jQuery(function() {
-    $("#create-note-form").on("submit", function(e) {
-        e.preventDefault()
-        const $noteData = $(this).serializeArray()
-        const mappedNoteData = {};
-
-        jQuery.map($noteData, function(data, index) {
-            mappedNoteData[data.name] = data.value;
-        })
-        createNote(mappedNoteData);
-    })
-
-    getNotes()
+    const params = new URLSearchParams(window.location.search)
+    if (!params.has("note_uuid")) {
+        window.location.href = "/client/pages/monomemo/home.php"
+    }
+    const noteUUID = params.get("note_uuid");
+    getNote(noteUUID)
 })
 
-function createNote(noteData) {
-    $.ajax({
-        type: "POST",
-        url: "/server/routers/monomemo/note.route.php",
-        data: noteData,
-        dataType: "json",
-        success: function (response) {
-            getNotes()
-            $(".file-form-container, .create-file-form").fadeOut(100)
-        },
-    });
-}
 
-function getNotes() {
+function getNote(noteUUID) {
     $.ajax({
         type: "GET",
-        url: "/server/routers/monomemo/note.route.php",
+        url: `/server/routers/monomemo/note.route.php?note_uuid=${noteUUID}`,
+        data : {type : "single_note"},
         dataType: "json",
         success: function (response) {
-            const mappedNotes = response.map((noteData, index) => {
-                return `<div class="note-card-container" key=${index}>
-                            <p class="note-card-title">${noteData.note_title}</p>
-                            <p class="note-card-content">${noteData.note_content}</p>
-                        </div>`
-            }) 
-            $(".file-container").html(mappedNotes);
+            console.log(response);
+            $("#single-note")
+                .html(
+                `
+                <div id="single-note-wrapper">
+                    <textarea id="single-note-title" placeholder="No Title">${response.note_title}</textarea>
+                    <textarea id="single-note-content" placeholder="No Content">${response.note_content}</textarea>
+                </div>
+                `);
         },
     });
 }
