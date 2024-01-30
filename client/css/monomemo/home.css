@@ -6,6 +6,31 @@
     justify-content: start;
     flex-direction: column;
     padding: 1rem;
+    max-width: 1440px;
+}
+
+.file-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+@media screen and (min-width: 768px) {
+    .file-container {
+        display: grid;
+        grid-auto-columns: max-content;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .file-container {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
 }
 
 .add-button-container {

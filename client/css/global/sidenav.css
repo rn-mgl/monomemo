@@ -7,6 +7,7 @@
     border-bottom: 1px solid var(--secondary);
     gap: 2rem;
     z-index: 4;
+    background: var(--primary);
 }
 
 #greetings-container {

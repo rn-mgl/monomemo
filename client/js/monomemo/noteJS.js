@@ -7,22 +7,38 @@ jQuery(function() {
         jQuery.map($noteData, function(data, index) {
             mappedNoteData[data.name] = data.value;
         })
-        
-        $.ajax({
-            type: "POST",
-            url: "/server/routers/monomemo/note.route.php",
-            data: mappedNoteData,
-            dataType: "json",
-            success: function (response) {
-                $(".file-form-container, .create-file-form").fadeOut(100);
-                $(".file-container").html(response.map(data => {
-                    console.log(data);
-                    return `<h1>${data.note_title}</h1>`
-                }))
-            },
-            error: function (response) {
-                console.log(response);
-            },
-        });
+        createNote(mappedNoteData);
     })
+
+    getNotes()
 })
+
+function createNote(noteData) {
+    $.ajax({
+        type: "POST",
+        url: "/server/routers/monomemo/note.route.php",
+        data: noteData,
+        dataType: "json",
+        success: function (response) {
+            getNotes()
+            $(".file-form-container, .create-file-form").fadeOut(100)
+        },
+    });
+}
+
+function getNotes() {
+    $.ajax({
+        type: "GET",
+        url: "/server/routers/monomemo/note.route.php",
+        dataType: "json",
+        success: function (response) {
+            const mappedNotes = response.map((noteData, index) => {
+                return `<div class="note-card-container" key=${index}>
+                            <p class="note-card-title">${noteData.note_title}</p>
+                            <p class="note-card-content">${noteData.note_content}</p>
+                        </div>`
+            }) 
+            $(".file-container").html(mappedNotes);
+        },
+    });
+}

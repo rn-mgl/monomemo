@@ -15,22 +15,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $insertResult = $conn->execute_query($insertQuery, [$noteUUID, $title, $content, $noteBy]);
 
         if ($insertResult) {
-            $getQuery = "SELECT * FROM notes WHERE note_by = ?;";
-            $getResult = $conn->execute_query($getQuery, [$noteBy]);
-            $resultArray = array();
-
-            if ($getResult->num_rows > 0) {
-                while ($row = $getResult->fetch_assoc()) {
-                    $resultArray[] = $row;
-                }
-            }
-            echo json_encode($resultArray);
+            echo json_encode(array("status" => $insertResult));
             die();
         }
     } catch (Exception $e) {
-        header("Location: /client/pages/auth/login.php");
+        header("Location: /client/pages/monomemo/home.php");
         die();
     }
+} else if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $userID = $_SESSION["id"];
+    try {
+        $query = "SELECT * FROM notes WHERE note_by = ?;";
+        $result = $conn->execute_query($query, [$userID]);
+        $userNotes = [];
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $userNotes[] = $row;
+            }
+            echo json_encode($userNotes);
+        }
+
+    } catch (Exception $e) {
+        header("Location: /client/pages/monomemo/home.php");
+        die();
+    }
+
 } else {
     header("Location: /client/pages/auth/login.php");
     die();
