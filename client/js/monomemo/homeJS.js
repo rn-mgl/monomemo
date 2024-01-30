@@ -53,8 +53,7 @@ jQuery(function() {
         createFolders(mappedFolderData)
     })
 
-    getNotes()
-    getFolders()
+    getFiles()
 })
 
 function createNote(noteData) {
@@ -64,25 +63,8 @@ function createNote(noteData) {
         data: noteData,
         dataType: "json",
         success: function (response) {
-            getNotes()
+            getFiles()
             $(".file-form-container, .create-file-form").fadeOut(100)
-        },
-    });
-}
-
-function getNotes() {
-    $.ajax({
-        type: "GET",
-        url: "/server/routers/monomemo/note.route.php",
-        dataType: "json",
-        success: function (response) {
-            const mappedNotes = response.map((noteData, index) => {
-                return `<div class="note-card-container" key=${index}>
-                            <p class="note-card-title">${noteData.note_title}</p>
-                            <p class="note-card-content">${noteData.note_content}</p>
-                        </div>`
-            }) 
-            $(".file-container").html(mappedNotes);
         },
     });
 }
@@ -94,24 +76,38 @@ function createFolders(folderData) {
         data: folderData,
         dataType: "json",
         success: function (response) {
-            getFolders()
+            getFiles()
             $(".file-form-container, .create-file-form").fadeOut(100)
         },
     });
 }
 
-function getFolders() {
+function getFiles() {
     $.ajax({
         type: "GET",
-        url: "/server/routers/monomemo/folder.route.php",
+        url: "/server/routers/monomemo/home.route.php",
         dataType: "json",
         success: function (response) {
-            const mappedFolders = response.map((folderData, index) => {
-                return `<div class="folder-card-container" key=${index}>
-                            <p class="folder-card-title">${folderData.folder_name}</p>
-                        </div>`
-            }) 
+            const mappedFolders = response.map((fileData, index) => {
+                return `<div class="${fileData.type}-card-container" key=${index}>
+                        ${fileData.type === "note" ? 
+                            `<p class="${fileData.type}-card-title">
+                                ${fileData.title ? fileData.title : "No Title"}
+                            </p>
+                            <p class="${fileData.type}-card-content">
+                                ${fileData.content ? fileData.content : "No Content"}
+                            </p>` 
+                            : 
+                            `<p class="${fileData.type}-card-title">
+                                ${fileData.title ? fileData.title : "No Title"}
+                            </p>` }
+                
+                         </div>`});
             $(".file-container").html(mappedFolders);
         },
+        error : function(re) {
+            console.log(re);
+        }
+
     });
 }
