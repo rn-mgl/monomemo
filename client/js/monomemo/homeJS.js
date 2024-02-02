@@ -44,7 +44,7 @@ jQuery(function() {
     $("#create-folder-form").on("submit", function(e) {
         e.preventDefault()
         const $folderData = $(this).serializeArray();
-        const mappedFolderData = {};
+        const mappedFolderData = {type : "new_folder"};
         jQuery.map($folderData, function(data, index) {
             mappedFolderData[data.name]=  data.value;
         })
@@ -86,7 +86,7 @@ function getFiles() {
         url: "/server/routers/monomemo/home.route.php",
         dataType: "json",
         success: function (response) {
-            const mappedFolders = response.map((fileData, index) => {
+            const mappedFiles = response.map((fileData, index) => {
                 return fileData.type === "note" ? 
                 `<a class="note-card-container" 
                     href="/client/pages/monomemo/note.php?note_uuid=${fileData.uuid}">
@@ -101,7 +101,7 @@ function getFiles() {
                     <p class="folder-card-title">${fileData.title ? fileData.title : ""}</p>
                 </a>` 
             }) 
-            $(".file-container").html(mappedFolders);
+            $(".file-container").html(mappedFiles);
         },
         error : function(re) {
             console.log(re);

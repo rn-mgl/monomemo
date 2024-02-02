@@ -18,4 +18,4 @@ if (!isset($_GET["note_uuid"])) {
 
 <div id="single-note"></div>
 
-<script src="../../js/monomemo/noteJS.js"></script>
+<script src="../../js/monomemo/noteJS.js" type="text/javascript"></script>

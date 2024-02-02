@@ -59,4 +59,4 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
 
 </div>
 
-<script src="../../js/monomemo/homeJS.js"></script>
+<script src="../../js/monomemo/homeJS.js" type="text/javascript"></script>
