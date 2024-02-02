@@ -1,4 +1,4 @@
-#monomemo-home {
+.monomemo-home {
     width: 100%;
     height: 100%;
     display: flex;
@@ -7,6 +7,7 @@
     flex-direction: column;
     padding: 1rem;
     max-width: 1440px;
+    gap: 1rem;
 }
 
 .file-container {

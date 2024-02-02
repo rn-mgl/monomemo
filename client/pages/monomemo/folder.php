@@ -3,7 +3,9 @@
 <?php include_once("../../components/global/sidenav.comp.php"); ?>
 
 
-<div id="monomemo-home">
+<div class="monomemo-home">
+
+    <div class="folder-data-container"></div>
 
     <div class="file-container">
     </div>

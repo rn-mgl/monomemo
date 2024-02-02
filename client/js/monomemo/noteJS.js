@@ -29,7 +29,7 @@ function getNote(noteUUID) {
                 .html(
                 `
                 <a href=${response.note_from ? `/client/pages/monomemo/folder.php?folder_uuid=${response.folder_uuid}` : "/client/pages/monomemo/note.php"}>
-                    <i class="fa-solid fa-xmark"></i>
+                    <i class="fa-solid fa-arrow-left"></i>
                 </a>
                 <form id="single-note-form">
                     <textarea id="single-note-title" placeholder="No Title">${response.note_title}</textarea>

@@ -9,7 +9,7 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
 }
 ?>
 
-<div id="monomemo-home">
+<div class="monomemo-home">
 
     <div class="file-container">
     </div>

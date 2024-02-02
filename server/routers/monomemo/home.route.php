@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     'note' AS type,
                     date_created FROM notes
                     WHERE note_by = ?
+                    AND note_from = '0'
                 
                 UNION
 
@@ -26,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     'folder' AS type,
                     date_created FROM folders
                     WHERE folder_by = ?
+                    AND folder_from = '0'
                 
                 ORDER BY date_created DESC";
 

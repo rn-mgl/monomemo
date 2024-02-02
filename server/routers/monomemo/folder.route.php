@@ -22,6 +22,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: /client/pages/monomemo/home.php");
             die();
         }
+    } else if ($_POST["type"] == "update_folder") {
+        if (!isset($_GET["folder_uuid"])) {
+            header("Location: /client/pages/monomemo/home.php");
+            die();
+        }
+        $folderUUID = $_GET["folder_uuid"];
+        $folderTitle = $_POST["folderTitle"];
+
+        try {
+            $query = "UPDATE folders SET folder_name = ?
+                        WHERE folder_uuid = ?;";
+            $result = $conn->execute_query($query, [$folderTitle, $folderUUID]);
+
+            if ($result) {
+                echo json_encode(array("status" => $result));
+            }
+
+        } catch (Exception $e) {
+            header("Location: /client/pages/monomemo/home.php");
+            die();
+        }
     }
 
 } else if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -51,7 +72,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $folderUUID = $_GET["folder_uuid"];
-        $query = "SELECT folder_uuid AS uuid, 
+
+        $folderQuery = "SELECT f.folder_name, f.folder_from, f2.folder_uuid 
+                        FROM folders AS f
+                        LEFT JOIN folders AS f2
+                        ON f.folder_from = f2.folder_id
+                        AND f.folder_id <> f2.folder_id
+                        WHERE f.folder_uuid = ?";
+        $folderResult = $conn->execute_query($folderQuery, [$folderUUID]);
+
+        $filesQuery = "SELECT folder_uuid AS uuid, 
                     folder_name AS title, 
                     null AS content, 
                     null AS file, 
@@ -76,15 +106,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         SELECT folder_id FROM folders AS sub_f 
                         WHERE sub_f.folder_uuid = ?
                     )";
-        $result = $conn->execute_query($query, [$folderUUID, $folderUUID]);
+        $filesResult = $conn->execute_query($filesQuery, [$folderUUID, $folderUUID]);
 
-        if ($result->num_rows > 0) {
-            $folderFiles = [];
-            while ($row = $result->fetch_assoc()) {
-                $folderFiles[] = $row;
+        $folderFiles = array("files" => array(), "folder_data" => array());
+
+        if ($filesResult->num_rows > 0) {
+            while ($row = $filesResult->fetch_assoc()) {
+                $folderFiles["files"][] = $row;
             }
-            echo json_encode($folderFiles);
         }
+        if ($folderResult->num_rows > 0) {
+            $row = $folderResult->fetch_assoc();
+            $folderFiles["folder_data"] = $row;
+        }
+
+        echo json_encode($folderFiles);
     }
 
 } else {
