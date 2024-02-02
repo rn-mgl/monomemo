@@ -54,7 +54,7 @@
     gap: 1rem;
 }
 
-#single-note-wrapper {
+#single-note-form {
     border: thin solid var(--accent);
     border-radius: 0.5rem;
     padding: 1rem;

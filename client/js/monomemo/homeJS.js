@@ -34,7 +34,7 @@ jQuery(function() {
     $("#create-note-form").on("submit", function(e) {
         e.preventDefault()
         const $noteData = $(this).serializeArray()
-        const mappedNoteData = {};
+        const mappedNoteData = {type : "new_note"};
         jQuery.map($noteData, function(data, index) {
             mappedNoteData[data.name] = data.value;
         })
