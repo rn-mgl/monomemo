@@ -12,6 +12,48 @@ jQuery(function () {
         }, [400])
     })
 
+    $("#folder-plus-button").on("click", function() {
+        this.animate({rotate : "90deg"}, 200);
+        $(this).toggleClass("add-button-selected");
+        $(".file-button").each(function(index, $button) {
+            $(this).slideToggle((index + 1) * 50);
+        })
+    })
+
+    $("#folder-note-button").on("click", function() {
+        $(".folder-file-form-container, #folder-create-note-form")
+        .fadeIn(100)
+        .css({
+            display : "flex",
+            "align-items" : "center",
+            "justify-content" : "center"
+        })
+    })
+
+    $("#folder-folder-button").on("click", function() {
+        $(".folder-file-form-container, #folder-create-folder-form")
+        .fadeIn(100)
+        .css({
+            display : "flex",
+            "align-items" : "center",
+            "justify-content" : "center"
+        })
+    })
+
+    $(".folder-create-file-form-close-button").on("click", function() {
+        $(".folder-file-form-container, .folder-create-file-form").fadeOut(100);
+    })
+
+    $("#folder-create-note-form").on("submit", function(e) {
+        e.preventDefault();
+        const $noteData = $(this).serializeArray();
+        const mappedNoteData = {type : "new_folder_note", folderUUID};
+        jQuery.map($noteData, function(data, index) {
+            mappedNoteData[data.name] = data.value;
+        })
+        createNote(mappedNoteData);
+    })
+
     getFiles(folderUUID)
 })
 
@@ -66,3 +108,19 @@ function updateFolder(folderUUID, folderTitle) {
         }
     })
 }
+
+function createNote(noteData) { 
+    $.ajax({
+        type : "POST",
+        url : "/server/routers/monomemo/note.route.php",
+        data : noteData,
+        dataType : "json",
+        success : function (response) {
+            console.log(response);
+            $(".folder-file-form-container, .folder-create-file-form").fadeOut(100);
+        },
+        error : function(response) {
+            console.log(response);
+        }
+    })
+ }

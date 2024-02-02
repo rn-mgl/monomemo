@@ -20,9 +20,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } catch (Exception $e) {
             header("Location: /client/pages/monomemo/home.php");
-
+            die();
         }
         die();
+    } else if ($_POST["type"] == "new_folder_note") {
+        $noteUUID = bin2hex(openssl_random_pseudo_bytes(25));
+        $title = $_POST["noteTitle"];
+        $content = $_POST["noteContent"];
+        $noteBy = $_SESSION["id"];
+        $folderUUID = $_POST["folderUUID"];
+
+        try {
+            $folderQuery = "SELECT * FROM folders WHERE folder_uuid = ?;";
+            $folderResult = $conn->execute_query($folderQuery, [$folderUUID]);
+
+            if ($folderResult->num_rows > 0) {
+                $row = $folderResult->fetch_assoc();
+                $query = "INSERT INTO notes (note_uuid, note_title, note_content, note_by, note_from)
+                            VALUES (?, ?, ?, ?, ?);";
+                $queryResult = $conn->execute_query($query, [$noteUUID, $title, $content, $noteBy, $row["folder_id"]]);
+
+                if ($queryResult) {
+                    echo json_encode(array("status" => $queryResult));
+                }
+            } else {
+                header("Location: /client/pages/monomemo/home.php");
+                die();
+            }
+
+        } catch (Exception $e) {
+            header("Location: /client/pages/monomemo/home.php");
+            die();
+        }
+
     } else if ($_POST["type"] == "update_note") {
         if (!isset($_GET["note_uuid"])) {
             header("Location: /client/pages/monomemo/home.php");
