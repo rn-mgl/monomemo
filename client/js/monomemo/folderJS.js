@@ -116,7 +116,6 @@ function createNote(noteData) {
         data : noteData,
         dataType : "json",
         success : function (response) {
-            console.log(response);
             $(".folder-file-form-container, .folder-create-file-form").fadeOut(100);
         },
         error : function(response) {
