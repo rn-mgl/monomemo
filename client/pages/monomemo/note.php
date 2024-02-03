@@ -17,14 +17,14 @@ if (!isset($_GET["note_uuid"])) {
 ?>
 
 <div id="single-note-page">
-    <div class="delete-note-form-container">
-        <div class="delete-note-form">
+    <div class="delete-form-container">
+        <div class="delete-form">
             <p id="delete-title">Delete Note?</p>
             <p id="delete-subtitle">a note cannot be retrieved once deleted</p>
 
-            <div class="delete-note-action-buttons-container">
-                <button type="button" id="decline-note-delete">No</button>
-                <button type="button" id="confirm-note-delete">Yes</button>
+            <div class="delete-action-buttons-container">
+                <button type="button" id="decline-delete">No</button>
+                <button type="button" id="confirm-delete">Yes</button>
             </div>
         </div>
     </div>
@@ -40,7 +40,5 @@ if (!isset($_GET["note_uuid"])) {
         </div>
     </div>
 </div>
-
-
 
 <script src="../../js/monomemo/noteJS.js" type="text/javascript"></script>

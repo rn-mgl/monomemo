@@ -5,6 +5,18 @@
 
 <div class="monomemo-home">
 
+    <div class="delete-form-container">
+        <div class="delete-form">
+            <p id="delete-title">Delete Note?</p>
+            <p id="delete-subtitle">a note cannot be retrieved once deleted</p>
+
+            <div class="delete-action-buttons-container">
+                <button type="button" id="decline-delete">No</button>
+                <button type="button" id="confirm-delete">Yes</button>
+            </div>
+        </div>
+    </div>
+
     <div class="folder-data-container"></div>
 
     <div class="file-container">

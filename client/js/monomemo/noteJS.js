@@ -6,7 +6,7 @@ jQuery(function() {
     const noteUUID = params.get("note_uuid");
 
     $("#delete-note-button").on("click", function() {
-        $(".delete-note-form-container")
+        $(".delete-form-container")
         .fadeIn(100)
         .css({
             display : "flex",
@@ -15,11 +15,11 @@ jQuery(function() {
         });
     })
 
-    $("#decline-note-delete").on("click", function() {
-        $(".delete-note-form-container").fadeOut(100);
+    $("#decline-delete").on("click", function() {
+        $(".delete-form-container").fadeOut(100);
     })
 
-    $("#confirm-note-delete").on("click", function() {
+    $("#confirm-delete").on("click", function() {
         $.ajax({
             type : "POST",
             url : `/server/routers/monomemo/note.route.php?note_uuid=${noteUUID}`,

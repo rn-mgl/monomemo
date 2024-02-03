@@ -7,6 +7,37 @@
     gap: 1rem;
 }
 
+.folder-action-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    width: 100%;
+}
+
+.folder-action-buttons-container a {
+    margin-right: auto;
+}
+
+.folder-action-buttons-container button  {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--accent);
+    padding: 1rem;
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms; 
+}
+
+.folder-action-buttons-container button:hover {
+    background: var(--secondary);
+}
+
 #single-folder-name {
     background: none;
     color: var(--accent);

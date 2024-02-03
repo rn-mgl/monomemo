@@ -73,8 +73,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: /client/pages/monomemo/home.php");
             die();
         }
-    }
 
+    } else if ($_POST["type"] == "delete_folder") {
+        if (!isset($_GET["folder_uuid"])) {
+            header("Location: /client/pages/monomemo/home.php");
+            die();
+        }
+
+        $folderUUID = $_GET["folder_uuid"];
+
+        try {
+            $folderQuery = "SELECT f.folder_id, f2.folder_uuid FROM folders AS f
+                            LEFT JOIN folders AS f2
+                            ON f.folder_from = f2.folder_id
+                            AND f.folder_from <> 0
+                            WHERE f.folder_uuid = ?";
+            $folderResult = $conn->execute_query($folderQuery, [$folderUUID]);
+
+            if ($folderResult->num_rows > 0) {
+                $folderRow = $folderResult->fetch_assoc();
+                $folderFrom = $folderRow["folder_uuid"];
+
+                $deleteNotesQuery = "DELETE FROM notes WHERE note_from = ?";
+                $deleteNotesResult = $conn->execute_query($deleteNotesQuery, [$folderRow["folder_id"]]);
+
+                $deleteFoldersQuery = "DELETE FROM folders WHERE folder_from = ?";
+                $deleteFoldersResult = $conn->execute_query($deleteFoldersQuery, [$folderRow["folder_id"]]);
+
+                $deleteFolderQuery = "DELETE FROM folders WHERE folder_uuid = ?";
+                $deleteFolderResult = $conn->execute_query($deleteFolderQuery, [$folderUUID]);
+
+                if ($deleteFolderResult) {
+                    echo json_encode(array("folder_from" => $folderRow["folder_uuid"]));
+                }
+
+            } else {
+                header("Location: /client/pages/monomemo/home.php");
+                die();
+            }
+
+        } catch (Exception $e) {
+            header("Location: /client/pages/monomemo/home.php");
+            die();
+        }
+
+    }
 } else if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if ($_GET["type"] == "my_folders") {
         $userID = $_SESSION["id"];
@@ -157,6 +200,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: /client/pages/auth/login.php");
     die();
 }
+
 
 
 

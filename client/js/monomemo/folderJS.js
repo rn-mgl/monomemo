@@ -12,6 +12,37 @@ jQuery(function () {
         }, [400])
     })
 
+    $(".folder-data-container").on("click", "#delete-folder-button", function() {
+        $(".delete-form-container")
+        .fadeIn(100)
+        .css({
+            display : "flex",
+            "align-items" : "center",
+            "justify-content" : "center",
+        });
+    })
+
+    $("#decline-delete").on("click", function(){
+        $(".delete-form-container").fadeOut(100);
+    })
+
+    $("#confirm-delete").on("click", function() {
+        $.ajax({
+            type : "POST",
+            url : `/server/routers/monomemo/folder.route.php?folder_uuid=${folderUUID}`,
+            data : {type : "delete_folder"},
+            dataType : "json",
+            success : function(response) {
+                console.log(response);
+                if (response?.folder_from) {
+                    window.location.href=`/client/pages/monomemo/folder.php?folder_uuid=${response.folder_from}`;
+                } else {
+                    window.location.href="/client/pages/monomemo/home.php";
+                }
+            }
+        })
+    })
+
     $("#folder-plus-button").on("click", function() {
         this.animate({rotate : "90deg"}, 200);
         $(this).toggleClass("add-button-selected");
@@ -92,9 +123,20 @@ function getFiles(folderUUID) {
             });
 
             const folderData = `
-            <a href=${folder_data.folder_from ? `/client/pages/monomemo/folder.php?folder_uuid=${folder_data.folder_uuid}` : "/client/pages/monomemo/folder.php"} >
-                <i class="fa-solid fa-arrow-left"></i>
-            </a> 
+            <div class="folder-action-buttons-container">
+                <a href=${folder_data.folder_from ? 
+                    `/client/pages/monomemo/folder.php?folder_uuid=${folder_data.folder_uuid}` 
+                    : "/client/pages/monomemo/folder.php"} >
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+
+                <button id="delete-folder-button">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+                <button id="move-folder-button">
+                    <i class="fa-solid fa-arrows-turn-to-dots"></i>
+                </button>
+            </div>
             <textarea id="single-folder-name" placeholder="No Title">${folder_data.folder_name}</textarea>`;
 
             $(".folder-data-container").html(folderData);
