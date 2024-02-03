@@ -79,6 +79,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: /client/pages/monomemo/home.php");
             die();
         }
+    } else if ($_POST["type"] == "delete_note") {
+        if (!isset($_GET["note_uuid"])) {
+            header("Location: /client/pages/monomemo/home.php");
+            die();
+        }
+
+        try {
+            $noteUUID = $_GET["note_uuid"];
+
+            $noteQuery = "SELECT * FROM notes AS n
+                        LEFT JOIN folders AS f
+                        ON n.note_from = f.folder_id
+                        AND n.note_from <> '0'
+                        WHERE note_uuid = ?";
+
+            $noteResult = $conn->execute_query($noteQuery, [$noteUUID]);
+
+            if ($noteResult->num_rows > 0) {
+                $noteRow = $noteResult->fetch_assoc();
+                $noteFrom = $noteRow["folder_uuid"];
+
+                $deleteQuery = "DELETE FROM notes WHERE note_uuid = ?";
+                $deleteResult = $conn->execute_query($deleteQuery, [$noteUUID]);
+
+                if ($deleteResult) {
+                    echo json_encode(array("note_from" => $noteFrom));
+                }
+            } else {
+                header("Location: /client/pages/monomemo/home.php");
+                die();
+            }
+        } catch (Exception $e) {
+            header("Location: /client/pages/monomemo/home.php");
+            die();
+        }
+
     }
 } else if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if ($_GET["type"] == "single_note") {

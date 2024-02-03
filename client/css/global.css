@@ -60,10 +60,6 @@ a {
     color: var(--accent);
 }
 
-i {
-    font-size: larger;
-}
-
 textarea {
     resize: none;
 }

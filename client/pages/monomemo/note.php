@@ -16,6 +16,31 @@ if (!isset($_GET["note_uuid"])) {
 }
 ?>
 
-<div id="single-note"></div>
+<div id="single-note-page">
+    <div class="delete-note-form-container">
+        <div class="delete-note-form">
+            <p id="delete-title">Delete Note?</p>
+            <p id="delete-subtitle">a note cannot be retrieved once deleted</p>
+
+            <div class="delete-note-action-buttons-container">
+                <button type="button" id="decline-note-delete">No</button>
+                <button type="button" id="confirm-note-delete">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="single-note">
+        <div class="note-action-buttons-container">
+            <button id="delete-note-button">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+            <button id="move-note-button">
+                <i class="fa-solid fa-arrows-turn-to-dots"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
 
 <script src="../../js/monomemo/noteJS.js" type="text/javascript"></script>
