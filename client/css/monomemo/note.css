@@ -32,6 +32,12 @@
     opacity: 0.5;
 }
 
+.note-card-content:empty::before {
+    content: "No Content";
+    opacity: 0.5;
+}
+
+
 .note-card-content {
     font-size: 0.8rem;
     font-weight: 500;

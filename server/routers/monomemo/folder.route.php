@@ -22,6 +22,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: /client/pages/monomemo/home.php");
             die();
         }
+    } else if ($_POST["type"] == "new_folder_folder") {
+        $folderUUID = bin2hex(openssl_random_pseudo_bytes(25));
+        $folderFrom = $_POST["folderUUID"];
+        $name = $_POST["folderName"];
+        $folderBy = $_SESSION["id"];
+
+        try {
+            $folderQuery = "SELECT * FROM folders WHERE folder_uuid = ?";
+            $folderResult = $conn->execute_query($folderQuery, [$folderFrom]);
+
+            if ($folderResult->num_rows > 0) {
+                $row = $folderResult->fetch_assoc();
+
+                $query = "INSERT INTO folders (folder_uuid, folder_name, folder_from, folder_by)
+                        VALUES (?, ?, ?, ?);";
+
+                $queryResult = $conn->execute_query($query, [$folderUUID, $name, $row["folder_id"], $folderBy]);
+
+                if ($queryResult) {
+                    echo json_encode(array("status" => $queryResult));
+                }
+            } else {
+                header("Location: /client/pages/monomemo/home.php");
+                die();
+            }
+        } catch (Exception $e) {
+            header("Location: /client/pages/monomemo/home.php");
+            die();
+        }
+
     } else if ($_POST["type"] == "update_folder") {
         if (!isset($_GET["folder_uuid"])) {
             header("Location: /client/pages/monomemo/home.php");

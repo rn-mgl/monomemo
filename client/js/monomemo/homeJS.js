@@ -91,9 +91,7 @@ function getFiles() {
                 `<a class="note-card-container" 
                     href="/client/pages/monomemo/note.php?note_uuid=${fileData.uuid}">
                     <p class="note-card-title">${fileData.title ? fileData.title : ""}</p>
-                    <p class="note-card-content">
-                    ${fileData.content ? fileData.content : "No Content"}
-                    </p>
+                    <p class="note-card-content">${fileData.content ? fileData.content : ""}</p>
                 </a>` 
             : 
                 `<a class="folder-card-container" 
