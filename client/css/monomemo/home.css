@@ -10,6 +10,38 @@
     gap: 1rem;
 }
 
+.file-card-action-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    gap: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+}
+
+.file-card-action-buttons-container button {
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--accent);
+    padding: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 100%;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+.file-card-action-buttons-container button:hover {
+    background: var(--secondary);
+}
+
 .file-container {
     width: 100%;
     display: flex;

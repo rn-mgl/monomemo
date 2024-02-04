@@ -11,6 +11,18 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
 
 <div class="monomemo-home">
 
+    <div class="delete-form-container">
+        <div class="delete-form">
+            <p id="delete-title">Delete File?</p>
+            <p id="delete-subtitle">a file cannot be retrieved once deleted</p>
+
+            <div class="delete-action-buttons-container">
+                <button type="button" id="decline-delete">No</button>
+                <button type="button" id="confirm-delete">Yes</button>
+            </div>
+        </div>
+    </div>
+
     <div class="file-container">
     </div>
 

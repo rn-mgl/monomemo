@@ -54,25 +54,35 @@
     flex-direction: column;
     padding: 1rem;
     padding-bottom: 2rem;
-    background: var(--secondary);
+    background: var(--accent);
     width: 100%;
     border-radius: 0.4rem;
-    border: thin solid var(--accent);
+    border: thin solid var(--secondary);
     min-height: 10rem;
     max-height: 10rem;
     flex: 1;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
     gap: 1rem;
+    position: relative;
+}
+
+.folder-card-link {
+    cursor: pointer;
+}
+
+.folder-card-link:hover {
+    text-decoration: underline;
 }
 
 .folder-card-container:hover {
     box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
-    border: thick solid var(--accent);
+    border: thick solid var(--secondary);
 }
 
 .folder-card-title {
     font-size: 1.2rem;
     font-weight: 500;
+    color: var(--primary);
 }
 
 .folder-card-title:empty::before {
@@ -87,5 +97,13 @@
     text-overflow: ellipsis;
     width: 100%;
     white-space: nowrap;
+}
 
+.folder-card-container .file-card-action-buttons-container button{
+    color: var(--primary);
+}
+
+.folder-card-container .file-card-action-buttons-container button:hover{
+    background: var(--secondary);
+    color: var(--accent);
 }

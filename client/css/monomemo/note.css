@@ -14,12 +14,22 @@
     flex: 1;
     transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
     gap: 1rem;
-    cursor: pointer;
+    
+    position: relative;
 }
 
 .note-card-container:hover {
     box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
     border: thick solid var(--accent);
+}
+
+.note-card-link {
+    cursor: pointer;
+    width: 100%;
+}
+
+.note-card-link:hover {
+    text-decoration: underline;
 }
 
 .note-card-title {

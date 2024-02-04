@@ -34,11 +34,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $result = $conn->execute_query($query, [$noteBy, $noteBy]);
 
         if ($result->num_rows > 0) {
-            $userFiles = [];
+            $userFiles = array();
             while ($row = $result->fetch_assoc()) {
                 $userFiles[] = $row;
             }
             echo json_encode($userFiles);
+        } else {
+            echo json_encode(array());
         }
     } catch (Exception $e) {
         header("Location: /client/pages/monomemo/home.php");
