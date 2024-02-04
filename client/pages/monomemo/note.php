@@ -17,6 +17,18 @@ if (!isset($_GET["note_uuid"])) {
 ?>
 
 <div id="single-note-page">
+    <div class="move-file-container">
+        <div class="move-file-form">
+            <button class="close-move-file-form-button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <p class="move-file-title">Select new file location</p>
+            <div class="file-paths">
+                <button class="path-button">Home <i class="fa-solid fa-house"></i></button>
+            </div>
+        </div>
+    </div>
+
     <div class="delete-form-container">
         <div class="delete-form">
             <p id="delete-title">Delete Note?</p>
@@ -42,3 +54,4 @@ if (!isset($_GET["note_uuid"])) {
 </div>
 
 <script src="../../js/monomemo/noteJS.js" type="text/javascript"></script>
+<script src="../../js/monomemo/moveJS.js" type="text/javascript"></script>

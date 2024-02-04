@@ -130,9 +130,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 while ($row = $result->fetch_assoc()) {
                     $userFolders[] = $row;
                 }
-                echo json_encode($userFolders);
             }
-
+            echo json_encode($userFolders);
         } catch (Exception $e) {
             header("Location: /client/pages/monomemo/home.php");
             die();
