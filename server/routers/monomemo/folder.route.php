@@ -81,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $folderUUID = $_GET["folder_uuid"];
+        $folderBy = $_SESSION["id"];
 
         try {
             $folderQuery = "SELECT f.folder_id, f2.folder_uuid FROM folders AS f
@@ -94,14 +95,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $folderRow = $folderResult->fetch_assoc();
                 $folderFrom = $folderRow["folder_uuid"];
 
-                $deleteNotesQuery = "DELETE FROM notes WHERE note_from = ?";
-                $deleteNotesResult = $conn->execute_query($deleteNotesQuery, [$folderRow["folder_id"]]);
-
-                $deleteFoldersQuery = "DELETE FROM folders WHERE folder_from = ?";
-                $deleteFoldersResult = $conn->execute_query($deleteFoldersQuery, [$folderRow["folder_id"]]);
-
                 $deleteFolderQuery = "DELETE FROM folders WHERE folder_uuid = ?";
                 $deleteFolderResult = $conn->execute_query($deleteFolderQuery, [$folderUUID]);
+
+                $deleteFoldersQuery = "DELETE FROM folders 
+                                        WHERE folder_from NOT IN (
+                                            SELECT folder_id FROM folders 
+                                            WHERE folder_by = ?
+                                        )";
+                $deleteFoldersResult = $conn->execute_query($deleteFoldersQuery, [$folderBy]);
+
+                $deleteNotesQuery = "DELETE FROM notes 
+                                        WHERE note_from NOT IN (
+                                            SELECT folder_id FROM folders 
+                                            WHERE folder_by = ?
+                                        )";
+                $deleteNotesResult = $conn->execute_query($deleteNotesQuery, [$folderBy]);
 
                 if ($deleteFolderResult) {
                     echo json_encode(array("folder_from" => $folderRow["folder_uuid"]));
@@ -122,6 +131,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_GET["type"] == "my_folders") {
         $userID = $_SESSION["id"];
         try {
+
+            $deleteFoldersQuery = "DELETE FROM folders 
+                                        WHERE folder_from NOT IN (
+                                            SELECT folder_id FROM folders 
+                                            WHERE folder_by = ?
+                                        ) AND folder_from <> 0";
+            $deleteFoldersResult = $conn->execute_query($deleteFoldersQuery, [$userID]);
+
             $query = "SELECT * FROM folders WHERE folder_by = ?;";
             $result = $conn->execute_query($query, [$userID]);
             $userFolders = [];

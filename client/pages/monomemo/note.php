@@ -24,7 +24,7 @@ if (!isset($_GET["note_uuid"])) {
             </button>
             <p class="move-file-title">Select new file location</p>
             <div class="file-paths">
-                <button class="path-button">Home <i class="fa-solid fa-house"></i></button>
+                <button class="path-button" folderUUID fileType="note">Home <i class="fa-solid fa-house"></i></button>
             </div>
         </div>
     </div>
@@ -54,4 +54,3 @@ if (!isset($_GET["note_uuid"])) {
 </div>
 
 <script src="../../js/monomemo/noteJS.js" type="text/javascript"></script>
-<script src="../../js/monomemo/moveJS.js" type="text/javascript"></script>

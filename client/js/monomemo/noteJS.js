@@ -47,6 +47,36 @@ jQuery(function() {
         })
     })
 
+    $("#move-note-button").on("click", function() {
+        $(".move-file-container")
+        .fadeIn(100)
+        .css({
+            display : "flex",
+            "align-items" : "center",
+            "justify-content" : "center"
+        });
+        
+    })
+
+    $(".file-paths").on("click", ".path-button", function() {
+        const folderUUID = $(this).attr("folderUUID");
+        const fileType = $(this).attr("fileType");
+
+        console.log(fileType);
+
+        switch (fileType){
+            case "note":
+                moveNote(folderUUID, noteUUID);
+                return;
+        }
+    })
+
+    $(".close-move-file-form-button").on("click", function() {
+        $(".move-file-container").fadeOut(100);
+    })
+
+    getPaths();
+
     getNote(noteUUID)
 })
 
@@ -83,6 +113,43 @@ function updateNote(noteData, noteUUID) {
             console.log("updated successfully");
         },
         error : function (response) {
+            console.log(response);
+        }
+    })
+}
+
+function getPaths() {
+    $.ajax({
+        type : "GET",
+        url : "/server/routers/monomemo/folder.route.php",
+        data : {type : "my_folders"},
+        dataType : "json",
+        success : function(response) {
+            const mappedPaths = response.map((data, index) => {
+                return `<button class="path-button" folderUUID="${data.folder_uuid}" fileType="note">
+                    ${data.folder_name} <i class="fa-solid fa-folder-open"></i>
+                    </button>`
+            })
+
+            $(".file-paths").append(mappedPaths);
+        }
+    })
+}
+
+function moveNote(folderUUID, noteUUID) {
+    $.ajax({
+        type : "POST",
+        url : `/server/routers/monomemo/move.route.php?note_uuid=${noteUUID}`,
+        data : {type : "move_note", folderUUID},
+        dataType : "json",
+        success : function(response) {
+            if (response?.new_path) {
+                window.location.href = `/client/pages/monomemo/folder.php?folder_uuid=${response?.new_path}`
+            } else {
+                window.location.href = "/client/pages/monomemo/home.php"
+            }
+        },
+        error : function(response) {
             console.log(response);
         }
     })
