@@ -23,9 +23,7 @@ if (!isset($_GET["note_uuid"])) {
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <p class="move-file-title">Select new file location</p>
-            <div class="file-paths">
-                <button class="path-button" folderUUID fileType="note">Home <i class="fa-solid fa-house"></i></button>
-            </div>
+            <div class="file-paths"></div>
         </div>
     </div>
 

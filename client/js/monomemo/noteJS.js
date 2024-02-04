@@ -55,7 +55,7 @@ jQuery(function() {
             "align-items" : "center",
             "justify-content" : "center"
         });
-        
+        getPaths();
     })
 
     $(".file-paths").on("click", ".path-button", function() {
@@ -74,8 +74,6 @@ jQuery(function() {
     $(".close-move-file-form-button").on("click", function() {
         $(".move-file-container").fadeOut(100);
     })
-
-    getPaths();
 
     getNote(noteUUID)
 })
@@ -131,7 +129,11 @@ function getPaths() {
                     </button>`
             })
 
-            $(".file-paths").append(mappedPaths);
+            mappedPaths.splice(0, 0, `<button class="path-button" folderUUID fileType="note">
+                                        Home <i class="fa-solid fa-folder-open"></i>
+                                    </button>`)
+
+            $(".file-paths").html(mappedPaths);
         }
     })
 }

@@ -5,6 +5,16 @@
 
 <div class="monomemo-home">
 
+    <div class="move-folder-container">
+        <div class="move-folder-form">
+            <button class="close-move-folder-form-button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <p class="move-folder-title">Select new file location</p>
+            <div class="file-paths"></div>
+        </div>
+    </div>
+
     <div class="delete-form-container">
         <div class="delete-form">
             <p id="delete-title">Delete File?</p>

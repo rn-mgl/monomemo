@@ -132,6 +132,32 @@ jQuery(function () {
 
     })
 
+    $(".folder-data-container").on("click", "#move-folder-button", function() {
+        $(".move-folder-container")
+        .fadeIn(100)
+        .css({
+            display : "flex",
+            "align-items" : "center",
+            "justify-content" : "center"
+        });
+        getPaths();
+    })
+
+    $(".file-paths").on("click", ".path-button", function() {
+        const folderUUID = $(this).attr("folderUUID");
+        const fileType = $(this).attr("fileType");
+
+        switch (fileType){
+            case "folder":
+                moveFolder(folderUUID, noteUUID);
+                return;
+        }
+    })
+
+    $(".close-move-folder-form-button").on("click", function() {
+        $(".move-folder-container").fadeOut(100);
+    })
+
     getFiles(folderUUID)
 })
 
@@ -266,6 +292,41 @@ function deleteFolder(folderUUID) {
         dataType : "json",
         success : function(response) {
             console.log("folder deleted");
+        }
+    })
+}
+
+function getPaths() {
+    $.ajax({
+        type : "GET",
+        url : "/server/routers/monomemo/folder.route.php",
+        data : {type : "my_folders"},
+        dataType : "json",
+        success : function(response) {
+
+            const mappedPaths = response.map((data, index) => {
+                return `<button class="path-button" folderUUID="${data.folder_uuid}" fileType="folder">
+                            ${data.folder_name} <i class="fa-solid fa-folder-open"></i>
+                        </button>`
+            })
+
+            mappedPaths.splice(0, 0, `<button class="path-button" folderUUID fileType="folder">
+                                            Home <i class="fa-solid fa-folder-open"></i>
+                                        </button>`)
+
+            $(".file-paths").html(mappedPaths);
+        }
+    })
+}
+
+function moveFolder(path, folderUUID) {
+    $.ajax({
+        type : "POST",
+        url : `/server/routers/monomemo/move.route.php?folder_uuid=${folderUUID}`,
+        data : {type : "move_folder", path},
+        dataType : "json",
+        success : function(response) {
+            console.log(response);
         }
     })
 }
