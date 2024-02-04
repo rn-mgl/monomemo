@@ -5,6 +5,18 @@ jQuery(function() {
     }
     const noteUUID = params.get("note_uuid");
 
+    $("#single-note").on("input", "#single-note-form", function() {
+        setTimeout(() => {
+            const noteData = $(this).serializeArray();
+            const mappedNoteData = {type : "update_note"};
+            jQuery.map(noteData, function(data, index){
+                mappedNoteData[data.name] = data.value;
+            })
+            updateNote(mappedNoteData, noteUUID);
+        }, [400])
+        
+    })
+
     $("#delete-note-button").on("click", function() {
         $(".delete-form-container")
         .fadeIn(100)
@@ -26,7 +38,6 @@ jQuery(function() {
             data : {type : "delete_note"},
             dataType : "json",
             success : function (response) {
-                console.log(response?.note_from);
                 if (response?.note_from) {
                     window.location.href = `/client/pages/monomemo/folder.php?folder_uuid=${response.note_from}`;
                 } else {
@@ -54,8 +65,8 @@ function getNote(noteUUID) {
                     <i class="fa-solid fa-arrow-left"></i>
                 </a>
                 <form id="single-note-form">
-                    <textarea id="single-note-title" placeholder="No Title">${response.note_title}</textarea>
-                    <textarea id="single-note-content" placeholder="No Content">${response.note_content}</textarea>
+                    <textarea name="noteTitle" id="single-note-title" placeholder="No Title">${response.note_title}</textarea>
+                    <textarea name="noteContent" id="single-note-content" placeholder="No Content">${response.note_content}</textarea>
                 </form>
             `);
         },
