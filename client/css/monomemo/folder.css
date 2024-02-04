@@ -107,3 +107,70 @@
     background: var(--secondary);
     color: var(--accent);
 }
+
+.delete-folder-form-container {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    backdrop-filter: blur(12px);
+    background-image: linear-gradient(to bottom right, rgb(69, 196, 176, 0.2), rgb(157, 133, 242, 0.2));
+}
+
+.delete-folder-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 425px;
+    padding: 1rem;
+    background: var(--primary);
+    border-radius: 0.4rem;
+    box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
+    text-align: center;
+    gap: 1rem;
+}
+
+#delete-folder-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#delete-folder-subtitle {
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.delete-folder-action-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+}
+
+.delete-folder-action-buttons-container button {
+    width: 8rem;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+}
+
+#confirm-folder-delete {
+    background: var(--secondary-green-highlight);
+    color: var(--primary);
+}
+
+#decline-folder-delete {
+    background: var(--accent);
+    color: var(--primary);
+}

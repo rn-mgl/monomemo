@@ -7,12 +7,24 @@
 
     <div class="delete-form-container">
         <div class="delete-form">
-            <p id="delete-title">Delete Note?</p>
-            <p id="delete-subtitle">a note cannot be retrieved once deleted</p>
+            <p id="delete-title">Delete File?</p>
+            <p id="delete-subtitle">a file cannot be retrieved once deleted</p>
 
             <div class="delete-action-buttons-container">
                 <button type="button" id="decline-delete">No</button>
                 <button type="button" id="confirm-delete">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="delete-folder-form-container">
+        <div class="delete-folder-form">
+            <p id="delete-folder-title">Delete Folder?</p>
+            <p id="delete-folder-subtitle">a folder cannot be retrieved once deleted</p>
+
+            <div class="delete-folder-action-buttons-container">
+                <button type="button" id="decline-folder-delete">No</button>
+                <button type="button" id="confirm-folder-delete">Yes</button>
             </div>
         </div>
     </div>
