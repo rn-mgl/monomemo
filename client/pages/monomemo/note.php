@@ -52,3 +52,4 @@ if (!isset($_GET["note_uuid"])) {
 </div>
 
 <script src="../../js/monomemo/noteJS.js" type="text/javascript"></script>
+<script src="../../js/monomemo/moveJS.js" type="text/javascript"></script>

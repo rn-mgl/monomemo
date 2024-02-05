@@ -5,13 +5,18 @@
 
 <div class="monomemo-home">
 
+    <div class="folder-data-container"></div>
+
+    <div class="file-container">
+    </div>
+
     <div class="move-folder-container">
         <div class="move-folder-form">
             <button class="close-move-folder-form-button">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <p class="move-folder-title">Select new file location</p>
-            <div class="file-paths"></div>
+            <div class="folder-file-paths"></div>
         </div>
     </div>
 
@@ -37,11 +42,6 @@
                 <button type="button" id="confirm-folder-delete">Yes</button>
             </div>
         </div>
-    </div>
-
-    <div class="folder-data-container"></div>
-
-    <div class="file-container">
     </div>
 
     <div class="folder-file-form-container">
@@ -93,3 +93,4 @@
 </div>
 
 <script src="../../js/monomemo/folderJS.js" type="text/javascript"></script>
+<!-- <script src="../../js/monomemo/moveJS.js" type="text/javascript"></script> -->

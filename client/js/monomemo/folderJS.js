@@ -4,6 +4,7 @@ jQuery(function () {
         window.location.href = "/client/pages/monomemo/home.php";
     }
     const folderUUID = params.get("folder_uuid");
+    const noteUUID = params.get("note_uuid");
 
     $(".folder-data-container").on("input", "#single-folder-name", function(e) {
         setTimeout(() => {
@@ -140,18 +141,12 @@ jQuery(function () {
             "align-items" : "center",
             "justify-content" : "center"
         });
-        getPaths();
+        getFolderPaths(folderUUID);
     })
 
-    $(".file-paths").on("click", ".path-button", function() {
-        const folderUUID = $(this).attr("folderUUID");
-        const fileType = $(this).attr("fileType");
-
-        switch (fileType){
-            case "folder":
-                moveFolder(folderUUID, noteUUID);
-                return;
-        }
+    $(".folder-file-paths").on("click", ".path-button", function() {
+        const path = $(this).attr("path");
+        moveFolder(path, folderUUID);
     })
 
     $(".close-move-folder-form-button").on("click", function() {
@@ -296,25 +291,24 @@ function deleteFolder(folderUUID) {
     })
 }
 
-function getPaths() {
+function getFolderPaths(folderUUID) {
     $.ajax({
         type : "GET",
-        url : "/server/routers/monomemo/folder.route.php",
-        data : {type : "my_folders"},
+        url : `/server/routers/monomemo/move.route.php?folder_uuid=${folderUUID}`,
+        data : {type : "folder_path"},
         dataType : "json",
         success : function(response) {
-
             const mappedPaths = response.map((data, index) => {
-                return `<button class="path-button" folderUUID="${data.folder_uuid}" fileType="folder">
+                return `<button class="path-button" path="${data.folder_uuid}">
                             ${data.folder_name} <i class="fa-solid fa-folder-open"></i>
                         </button>`
             })
 
-            mappedPaths.splice(0, 0, `<button class="path-button" folderUUID fileType="folder">
-                                            Home <i class="fa-solid fa-folder-open"></i>
-                                        </button>`)
+            mappedPaths.splice(0, 0, `<button class="path-button" path>
+                                        Home <i class="fa-solid fa-folder-open"></i>
+                                    </button>`)
 
-            $(".file-paths").html(mappedPaths);
+            $(".folder-file-paths").html(mappedPaths);
         }
     })
 }
@@ -326,6 +320,13 @@ function moveFolder(path, folderUUID) {
         data : {type : "move_folder", path},
         dataType : "json",
         success : function(response) {
+            if (response?.new_path) {
+                window.location.href = `/client/pages/monomemo/folder.php?folder_uuid=${response?.new_path}`
+            } else {
+                window.location.href = "/client/pages/monomemo/home.php"
+            }
+        },
+        error : function(response) {
             console.log(response);
         }
     })

@@ -102,15 +102,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         WHERE folder_from NOT IN (
                                             SELECT folder_id FROM folders 
                                             WHERE folder_by = ?
-                                        )";
-                $deleteFoldersResult = $conn->execute_query($deleteFoldersQuery, [$folderBy]);
+                                        ) AND folder_from <> ?";
+                $deleteFoldersResult = $conn->execute_query($deleteFoldersQuery, [$folderBy, 0]);
 
                 $deleteNotesQuery = "DELETE FROM notes 
                                         WHERE note_from NOT IN (
                                             SELECT folder_id FROM folders 
                                             WHERE folder_by = ?
-                                        )";
-                $deleteNotesResult = $conn->execute_query($deleteNotesQuery, [$folderBy]);
+                                        ) AND note_from <> ?";
+                $deleteNotesResult = $conn->execute_query($deleteNotesQuery, [$folderBy, 0]);
 
                 if ($deleteFolderResult) {
                     echo json_encode(array("folder_from" => $folderRow["folder_uuid"]));

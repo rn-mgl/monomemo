@@ -234,3 +234,23 @@
     font-size: 1.2rem;
     font-weight: 600;
 }
+
+.folder-file-paths {
+    background: var(--secondary);
+    width: 100%;
+    height: auto;
+    border-radius: 0.4rem;
+    overflow-y: auto;
+    display: grid;
+    align-items: start;
+    justify-content: start;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .folder-file-paths {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
