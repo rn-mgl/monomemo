@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
             if ($_POST["path"] == "") {
-                $moveQuery = "UPDATE notes SET folder_from = ? WHERE folder_uuid = ?";
+                $moveQuery = "UPDATE folders SET folder_from = ? WHERE folder_uuid = ?";
                 $moveResult = $conn->execute_query($moveQuery, [0, $folderUUID]);
 
                 if ($moveResult) {

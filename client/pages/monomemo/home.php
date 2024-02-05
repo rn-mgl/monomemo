@@ -11,6 +11,19 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
 
 <div class="monomemo-home">
 
+    <div class="file-container">
+    </div>
+
+    <div class="move-file-container">
+        <div class="move-file-form">
+            <button class="close-move-file-form-button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <p class="move-file-title">Select new file location</p>
+            <div class="file-paths"></div>
+        </div>
+    </div>
+
     <div class="delete-form-container">
         <div class="delete-form">
             <p id="delete-title">Delete File?</p>
@@ -21,9 +34,6 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
                 <button type="button" id="confirm-delete">Yes</button>
             </div>
         </div>
-    </div>
-
-    <div class="file-container">
     </div>
 
     <div class="file-form-container">
@@ -72,3 +82,4 @@ if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["
 </div>
 
 <script src="../../js/monomemo/homeJS.js" type="text/javascript"></script>
+<script src="../../js/monomemo/moveJS.js" type="text/javascript"></script>

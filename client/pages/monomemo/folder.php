@@ -10,6 +10,16 @@
     <div class="file-container">
     </div>
 
+    <div class="move-file-container">
+        <div class="move-file-form">
+            <button class="close-move-file-form-button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <p class="move-file-title">Select new file location</p>
+            <div class="file-paths"></div>
+        </div>
+    </div>
+
     <div class="move-folder-container">
         <div class="move-folder-form">
             <button class="close-move-folder-form-button">
@@ -93,4 +103,4 @@
 </div>
 
 <script src="../../js/monomemo/folderJS.js" type="text/javascript"></script>
-<!-- <script src="../../js/monomemo/moveJS.js" type="text/javascript"></script> -->
+<script src="../../js/monomemo/moveJS.js" type="text/javascript"></script>
