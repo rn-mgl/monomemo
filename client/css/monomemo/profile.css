@@ -17,6 +17,114 @@
   }
 }
 
+#edit-profile-form-container {
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(69, 196, 176, 0.2),
+    rgb(157, 133, 242, 0.2)
+  );
+  backdrop-filter: blur(12px);
+  padding: 1rem;
+}
+
+#edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  margin: auto 0px;
+  max-width: 425px;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom right,
+    var(--primary),
+    var(--secondary)
+  );
+  box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
+}
+
+.edit-profile-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.edit-profile-input-wrapper label {
+  margin-right: auto;
+  font-size: 0.8rem;
+}
+
+.edit-profile-input-wrapper input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.4rem;
+}
+
+.edit-profile-input-wrapper input:focus {
+  outline: none;
+  box-shadow: none;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+
+.edit-profile-input {
+  border: 0.1rem solid var(--secondary-green-highlight);
+}
+
+.edit-profile-input:focus {
+  border-bottom: 0.2rem solid var(--secondary-green-highlight);
+}
+
+#close-edit-profile-form {
+  width: 2rem;
+  height: 2rem;
+  padding: 1rem;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  background: none;
+  color: var(--accent);
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+#close-edit-profile-form:hover {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+#edit-profile-submit {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: var(--secondary-green-highlight);
+  font-weight: 700;
+}
+
 #image-container {
   width: 100%;
   height: 17rem;

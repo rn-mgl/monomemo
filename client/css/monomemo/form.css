@@ -1,322 +1,341 @@
 .folder-file-form-container,
 .file-form-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
-    z-index: 6;
-    backdrop-filter: blur(8px);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(to bottom right, rgb(69, 196, 176, 0.2),rgb(157, 133, 242, 0.2));
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  z-index: 6;
+  backdrop-filter: blur(12px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(69, 196, 176, 0.2),
+    rgb(157, 133, 242, 0.2)
+  );
 }
 
 .folder-create-file-form,
 .create-file-form {
-    display: none;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    gap: 1rem;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 0.8rem;
-    margin: auto 0px; 
-    max-width: 768px;
-    z-index: 1;
+  display: none;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  margin: auto 0px;
+  max-width: 768px;
+  z-index: 1;
 }
 
 .create-file-form-title-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .folder-create-file-form-close-button,
 .create-file-form-close-button {
-    background: none;
-    border: none;
-    outline: none;
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
-    border-radius: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+  border-radius: 100%;
 }
 
 .create-file-form-close-button:hover {
-    box-shadow: 0rem 0.2rem 0.5rem var(--shadow);
+  box-shadow: 0rem 0.2rem 0.5rem var(--shadow);
 }
 
-@media screen and (min-width:768px) {
-    .create-file-form {
-        width: 60%;
-    }
+@media screen and (min-width: 768px) {
+  .create-file-form {
+    width: 60%;
+  }
 }
 
 .create-file-label-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
 }
 
 .file-form-submit {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 0.4rem;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
 }
 
 .file-form-submit:hover {
-    box-shadow: 0rem 0.2rem 0.5rem var(--shadow);
+  box-shadow: 0rem 0.2rem 0.5rem var(--shadow);
 }
 
 .create-file-label-wrapper label {
-    margin-right: auto;
-    font-size: 0.8rem;
+  margin-right: auto;
+  font-size: 0.8rem;
 }
 
-.create-file-label-wrapper input, textarea {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border-radius: 0.4rem;
+.create-file-label-wrapper input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.4rem;
 }
 
-.create-file-label-wrapper input:focus, textarea:focus {
-    outline: none;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(.4,0,.2,1);
-    transition-duration: .15s;
+.create-file-label-wrapper input:focus,
+textarea:focus {
+  outline: none;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
 }
 
 #folder-create-note-form,
 #create-note-form {
-    border: 0.1rem solid var(--secondary-purple-highlight);
-    background-image: linear-gradient(to bottom right, rgb(189, 174, 242, 0.5), rgb(157, 133, 242, 0.5));
+  border: 0.1rem solid var(--secondary-purple-highlight);
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(189, 174, 242, 0.5),
+    rgb(157, 133, 242, 0.5)
+  );
 }
 
 .create-note-title-input,
-.create-note-content-input
- {
-    border: 0.1rem solid var(--secondary-purple-highlight);
-    background: var(--primary);
-    color: var(--accent);
+.create-note-content-input {
+  border: 0.1rem solid var(--secondary-purple-highlight);
+  background: var(--primary);
+  color: var(--accent);
 }
 
 .create-note-title-input:focus,
 .create-note-content-input:focus {
-    border-bottom: 0.2rem solid var(--secondary-purple-highlight);
+  border-bottom: 0.2rem solid var(--secondary-purple-highlight);
 }
 
 #folder-create-note-submit,
 #create-note-submit {
-    background: var(--primary-purple-highlight);
-    font-weight: bold;
-    color: white; 
+  background: var(--primary-purple-highlight);
+  font-weight: bold;
+  color: white;
 }
 
 #folder-create-folder-form,
 #create-folder-form {
-    border: 0.1rem solid var(--secondary-green-highlight);
-    background-image: linear-gradient(to bottom right, rgb(218, 253, 186, 0.5), rgb(69, 196, 176, 0.5));
+  border: 0.1rem solid var(--secondary-green-highlight);
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(218, 253, 186, 0.5),
+    rgb(69, 196, 176, 0.5)
+  );
 }
 
 .create-folder-title-input,
-.create-folder-content-input
- {
-    border: 0.1rem solid var(--secondary-green-highlight);
-    background: var(--primary);
-    color: var(--accent);
+.create-folder-content-input {
+  border: 0.1rem solid var(--secondary-green-highlight);
+  background: var(--primary);
+  color: var(--accent);
 }
 
 .create-folder-title-input:focus,
 .create-folder-content-input:focus {
-    border-bottom: 0.2rem solid var(--secondary-green-highlight);
+  border-bottom: 0.2rem solid var(--secondary-green-highlight);
 }
 
 #folder-create-folder-submit,
 #create-folder-submit {
-    background: var(--primary-green-highlight);
-    font-weight: bold;
-    color: white; 
+  background: var(--primary-green-highlight);
+  font-weight: bold;
+  color: white;
 }
 
 .delete-form-container {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    top: 0;
-    left: 0;
-    padding: 1rem;
-    backdrop-filter: blur(12px);
-    background-image: linear-gradient(to bottom right, rgb(69, 196, 176, 0.2), rgb(157, 133, 242, 0.2));
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  backdrop-filter: blur(12px);
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(69, 196, 176, 0.2),
+    rgb(157, 133, 242, 0.2)
+  );
 }
 
 .delete-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    max-width: 425px;
-    padding: 1rem;
-    background: var(--primary);
-    border-radius: 0.4rem;
-    box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
-    text-align: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 425px;
+  padding: 1rem;
+  background: var(--primary);
+  border-radius: 0.4rem;
+  box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
+  text-align: center;
+  gap: 1rem;
 }
 
 #delete-title {
-    font-size: 1.2rem;
-    font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 #delete-subtitle {
-    font-size: 0.8rem;
-    font-weight: 300;
+  font-size: 0.8rem;
+  font-weight: 300;
 }
 
 .delete-action-buttons-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    gap: 1rem;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
 }
 
 .delete-action-buttons-container button {
-    width: 8rem;
-    padding: 1rem;
-    border-radius: 0.4rem;
-    font-weight: 700;
-    font-size: 1rem;
-    border: none;
-    outline: none;
+  width: 8rem;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  outline: none;
 }
 
 #confirm-delete {
-    background: var(--secondary-green-highlight);
-    color: var(--primary);
+  background: var(--secondary-green-highlight);
+  color: var(--primary);
 }
 
 #decline-delete {
-    background: var(--accent);
-    color: var(--primary);
+  background: var(--accent);
+  color: var(--primary);
 }
 
 .move-file-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
-    z-index: 6;
-    backdrop-filter: blur(8px);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(to bottom right, rgb(69, 196, 176, 0.2),rgb(157, 133, 242, 0.2));
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  z-index: 6;
+  backdrop-filter: blur(12px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(69, 196, 176, 0.2),
+    rgb(157, 133, 242, 0.2)
+  );
 }
 
 .close-move-file-form-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    background: none;
-    border: none;
-    outline: none;
-    padding: 1rem;
-    width: 2rem;
-    height: 2rem;
-    color: var(--accent);
-    border-radius: 100%;
-    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  width: 2rem;
+  height: 2rem;
+  color: var(--accent);
+  border-radius: 100%;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
 }
 
 .close-move-file-form-button:hover {
-    background: var(--secondary);
+  background: var(--secondary);
 }
 
 .move-file-form {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    flex-direction: column;
-    width: 100%;
-    max-width: 425px;
-    height: auto;
-    max-height: 26rem;
-    padding: 1rem;
-    background: var(--primary);
-    border-radius: 0.8rem;
-    box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
-    text-align: center;
-    gap: 1rem;
-
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  width: 100%;
+  max-width: 425px;
+  height: auto;
+  max-height: 26rem;
+  padding: 1rem;
+  background: var(--primary);
+  border-radius: 0.8rem;
+  box-shadow: 0rem 0.5rem 0.5rem var(--shadow);
+  text-align: center;
+  gap: 1rem;
 }
 
 .move-file-title {
-    font-size: 1.2rem;
-    font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .file-paths {
-    background: var(--secondary);
-    width: 100%;
-    height: auto;
-    border-radius: 0.4rem;
-    overflow-y: auto;
-    display: grid;
-    align-items: start;
-    justify-content: start;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 0.5rem;
-    padding: 1rem;
+  background: var(--secondary);
+  width: 100%;
+  height: auto;
+  border-radius: 0.4rem;
+  overflow-y: auto;
+  display: grid;
+  align-items: start;
+  justify-content: start;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding: 1rem;
 }
 
 @media screen and (min-width: 768px) {
-    .file-paths {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+  .file-paths {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .path-button {
-    width: 100%;
-    height: fit-content;
-    padding: 1rem;
-    border-radius: 0.2rem;
-    background: var(--primary);
-    border: none;
-    outline: none;
-    color: var(--accent);
-    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  background: var(--primary);
+  border: none;
+  outline: none;
+  color: var(--accent);
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .path-button:hover {
-    border: 0.2rem solid var(--accent);
+  border: 0.2rem solid var(--accent);
 }
