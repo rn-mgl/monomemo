@@ -4,8 +4,6 @@ jQuery(function () {
     url: "/server/routers/monomemo/profile.route.php",
     dataType: "json",
     success: function (response) {
-      console.log(response);
-
       const profileData = `
         <div class="single-info-container">
             <p class="user-info-title">Name</p>
@@ -37,7 +35,7 @@ jQuery(function () {
         </div>
         `;
 
-      $("#info-container").html(profileData);
+      $("#info-container").prepend(profileData);
     },
   });
 });
