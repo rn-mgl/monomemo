@@ -16,7 +16,7 @@ jQuery(function () {
     },
   });
 
-  $("#profile").on("click", function () {
+  $("#profile-button").on("click", function () {
     $("#profile-actions-container").fadeToggle(100).css({
       display: "flex",
       "align-items": "center",

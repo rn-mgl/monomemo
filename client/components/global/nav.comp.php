@@ -10,13 +10,11 @@
     </div>
 
     <div id="profile-container">
-        <button id="profile"></button>
+        <button id="profile-button"></button>
         <div id="profile-actions-container">
             <button class="profile-actions-button" id="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out <i class="fa-solid fa-chevron-right"></i></button>
         </div>
     </div>
-
-    
 </div>
 
 <script src="../../js/global/navJS.js" type="text/javascript"></script>
