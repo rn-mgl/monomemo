@@ -15,7 +15,6 @@ jQuery(function () {
       data: mappedLoginData,
       dataType: "json",
       success: function (response) {
-        console.log(response);
         if (response.status) {
           window.location.href = "/client/pages/monomemo/home.php";
         }

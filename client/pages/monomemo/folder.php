@@ -1,6 +1,6 @@
 <?php session_start() ?>
 <?php include_once("../../components/global/header.comp.php"); ?>
-<?php include_once("../../components/global/sidenav.comp.php"); ?>
+<?php include_once("../../components/global/nav.comp.php"); ?>
 
 
 <div class="monomemo-home">

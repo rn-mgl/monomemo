@@ -2,7 +2,7 @@
 
 <?php
 include_once("../../components/global/header.comp.php");
-include_once("../../components/global/sidenav.comp.php");
+include_once("../../components/global/nav.comp.php");
 if (!isset($_SESSION["uuid"]) || !isset($_SESSION["name"]) || !isset($_SESSION["surname"]) || !isset($_SESSION["email"])) {
     header("Location: /client/pages/index.php");
     die();

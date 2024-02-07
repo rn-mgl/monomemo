@@ -32,7 +32,7 @@
 	<link rel="stylesheet" href="/client/css/auth/verify.css">
 	<link rel="stylesheet" href="/client/css/auth/login.css">
 
-	<link rel="stylesheet" href="/client/css/global/sidenav.css">
+	<link rel="stylesheet" href="/client/css/global/nav.css">
 	<link rel="stylesheet" href="/client/css/monomemo/home.css">
 	<link rel="stylesheet" href="/client/css/monomemo/form.css">
 	<link rel="stylesheet" href="/client/css/monomemo/note.css">

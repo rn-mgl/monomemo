@@ -1,6 +1,13 @@
 <?php
-include_once("../../../client/components/global/header.comp.php");
-session_destroy();
-header("Location: /client/pages/index.php");
-die();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    session_start();
+    session_destroy();
+    echo json_encode(array("status" => true));
+    die();
+} else {
+    header("Location: /client/pages/index.php");
+}
+
+
 ?>
