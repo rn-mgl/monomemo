@@ -15,7 +15,7 @@ if (isset($_SESSION["signupError"])) {
 
 <div id="signup">
 
-    <form class="auth-form signup-form" action="/server/routers/auth/signup.route.php" method="post">
+    <form class="auth-form signup-form" id="signup-form">
 
         <div class="auth-text-wrapper">
             <p class="auth-greetings">Welcome to MonoMemo,</p>
@@ -49,3 +49,5 @@ if (isset($_SESSION["signupError"])) {
 
     <img src="/client/public/svg/signUp.svg" class="auth-image signup-image" />
 </div>
+
+<script src="../../js/auth/signupJS.js"></script>

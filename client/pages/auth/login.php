@@ -13,7 +13,7 @@ if (isset($_SESSION["loginError"])) {
 
 <div id="login">
 
-    <form class="auth-form login-form" action="/server/routers/auth/login.route.php" method="post">
+    <form class="auth-form login-form" id="login-form">
 
         <div class="auth-text-wrapper">
             <p class="auth-greetings">Welcome back to MonoMemo,</p>
@@ -37,3 +37,5 @@ if (isset($_SESSION["loginError"])) {
 
     <img src="/client/public/svg/login.svg" class="auth-image login-image" />
 </div>
+
+<script src="../../js/auth/loginJS.js"></script>

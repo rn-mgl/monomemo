@@ -3,7 +3,7 @@
 <?php
 include_once("../../database/conn.php");
 
-if (isset($_POST["submit"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!isset($_SESSION["email"])) {
         header("Location: /client/pages/auth/signup.php");
@@ -24,12 +24,16 @@ if (isset($_POST["submit"])) {
                 $result = $conn->execute_query($verifyUser, [$row["user_id"]]);
 
                 if ($result) {
-                    header("Location: /client/pages/auth/login.php");
+                    echo json_encode(array("status"=> $result));
                     die();
                 } else {
-                    header("Location: /client/pages/auth/verify.php");
+                    echo json_encode(array("status"=> false));
                     die();
                 }
+            } else {
+                echo json_encode(array("status"=> false));
+                $_SESSION["verifyError"] = "Incorrect verification code";
+                die();
             }
         }
     } catch (Exception $e) {

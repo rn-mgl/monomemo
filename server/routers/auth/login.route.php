@@ -3,7 +3,7 @@
 <?php
 include_once("../../database/conn.php");
 
-if (isset($_POST["submit"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         $candidateEmail = $_POST["email"];
@@ -24,10 +24,10 @@ if (isset($_POST["submit"])) {
                 $_SESSION["email"] = $row["user_email"];
                 $_SESSION["id"] = $row["user_id"];
 
-                header("Location: /client/pages/monomemo/home.php");
+                echo json_encode(array("status" => $isCorrect));
                 die();
             } else {
-                header("Location: /client/pages/auth/login.php");
+                echo json_encode(array("status" => false));
                 $_SESSION["loginError"] = "Incorrect password";
                 die();
             }

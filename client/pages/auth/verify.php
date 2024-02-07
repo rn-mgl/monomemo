@@ -14,7 +14,7 @@ if (isset($_SESSION["verifyError"])) {
 ?>
 
 <div id="verify">
-    <form class="auth-form verify-form" action="/server/routers/auth/verify.route.php" method="post">
+    <form class="auth-form verify-form" id="verify-form">
 
         <div class="auth-text-wrapper">
             <p class="auth-greetings">Welcome to MonoMemo,</p>
@@ -33,3 +33,5 @@ if (isset($_SESSION["verifyError"])) {
 
     <img src="/client/public/svg/verify.svg" class="auth-image verify-image" />
 </div>
+
+<script src="../../js/auth/verifyJS.js"></script>

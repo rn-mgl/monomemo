@@ -1,10 +1,10 @@
 <?php session_start() ?>
 
 <?php
-include_once("../../server/database/conn.php");
-include_once("../utils/mailer.php");
+include_once("../../database/conn.php");
+include_once("../../utils/mailer.php");
 
-if (isset($_POST["submit"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $uuid = bin2hex(openssl_random_pseudo_bytes(25));
     $name = $_POST["name"];
@@ -39,10 +39,10 @@ if (isset($_POST["submit"])) {
 
             sendVerificationMail($name, $surname, $email, $verificationCode);
 
-            header("Location: /client/pages/auth/verify.php");
+            echo json_encode(array("status" => $result));
             die();
         } else {
-            header("Location: /client/pages/auth/signup.php");
+            echo json_encode(array("status" => false));
             die();
         }
 
