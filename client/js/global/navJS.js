@@ -13,6 +13,12 @@ jQuery(function () {
       `;
 
       $("#profile-actions-container").prepend(profile);
+
+      if (userData.user_image) {
+        $("#profile-button, #profile-image").css({
+          "background-image": `url(${userData.user_image})`,
+        });
+      }
     },
   });
 

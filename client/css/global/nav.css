@@ -41,6 +41,9 @@
   );
   border: none;
   outline: none;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #profile-actions-container {
@@ -89,6 +92,9 @@
     var(--accent-purple-highlight),
     var(--primary-purple-highlight)
   );
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #profile-name {
