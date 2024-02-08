@@ -139,6 +139,10 @@ jQuery(function () {
     const inputFile = $("#profile-image-input");
     const file = inputFile[0];
 
+    if (!file || !file.length) {
+      return;
+    }
+
     const formData = new FormData();
     formData.append("file", file.files[0]);
 
