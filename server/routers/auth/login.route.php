@@ -1,7 +1,15 @@
 <?php session_start() ?>
 
 <?php
+require_once __DIR__ . ("/../../../vendor/autoload.php");
 include_once("../../database/conn.php");
+
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+use Dotenv\Dotenv;
+$dotenv = Dotenv::createImmutable(__DIR__."/../../");
+$dotenv->safeLoad();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -23,6 +31,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["surname"] = $row["user_surname"];
                 $_SESSION["email"] = $row["user_email"];
                 $_SESSION["id"] = $row["user_id"];
+
+                $now_seconds = time();
+
+                $payload = ["id" => $row["user_id"], 
+                            "uuid" => $row["user_uuid"], 
+                            "email" => $row["user_email"], 
+                            "exp" => $now_seconds + (60 * 60 * 7)];
+                $encodeJWT = JWT::encode($payload, $_ENV["JWT_SECRET"], "HS256");
+
+                $_SESSION["token"] = $encodeJWT;
 
                 echo json_encode(array("status" => $isCorrect));
                 die();
