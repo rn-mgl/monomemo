@@ -139,10 +139,6 @@ jQuery(function () {
     const inputFile = $("#profile-image-input");
     const file = inputFile[0];
 
-    if (!file || !file.length) {
-      return;
-    }
-
     const formData = new FormData();
     formData.append("file", file.files[0]);
 
@@ -154,12 +150,18 @@ jQuery(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        if (response.updated) {
-          getUserData();
-          $("#edit-profile-form-container, #edit-profile-image-form").fadeOut(
-            100
-          );
-        }
+        $.ajax({
+          type: "POST",
+          url: "/server/routers/monomemo/profile.route.php",
+          data: { url: response.url, type: "update_image" },
+          dataType: "json",
+          success: function (response) {
+            $("#edit-profile-form-container, #edit-profile-image-form").fadeOut(
+              100
+            );
+            getUserData();
+          },
+        });
       },
       error: function (response) {
         console.log(response);

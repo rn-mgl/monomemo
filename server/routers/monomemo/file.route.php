@@ -46,11 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $upload = (new UploadApi())->upload($file["tmp_name"], ["folder" => "monomemo-uploads"]);
             $url = $upload["secure_url"];
         }
-            
-        $query = "UPDATE users SET user_image = ? WHERE user_id = ?;";
-        $result = $conn->execute_query($query, [$url, $userID]);
 
-        echo json_encode(array("updated" => $result));
+        echo json_encode(array("url" => $url));
 
     } catch (Exception $e) {
         header("Location: /client/pages/monomemo/profile.php");

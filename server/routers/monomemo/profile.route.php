@@ -60,6 +60,26 @@
                 header("Location: /client/pages/auth/login.php");
                 die();
             }
+        } else if ($_POST["type"] == "update_image") {
+            $userID = $_SESSION["id"];
+            $imageURL = $_POST["url"];
+
+            try {
+                $query = "SELECT * FROM users WHERE user_id = ?;";
+                $result = $conn->execute_query($query, [$userID]);
+
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+
+                    $updateQuery = "UPDATE users SET user_image = ? WHERE user_id = ?";
+                    $updateResult = $conn->execute_query($updateQuery, [$imageURL, $userID]);
+
+                    echo json_encode(array("update" => $updateResult));
+                }
+            } catch (Exception $e) {
+                header("Location: /client/pages/auth/login.php");
+                die();
+            }
         }
 
         
