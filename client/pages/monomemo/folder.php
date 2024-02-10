@@ -1,6 +1,15 @@
 <?php session_start() ?>
 <?php include_once("../../components/global/header.comp.php"); ?>
 <?php include_once("../../components/global/nav.comp.php"); ?>
+<?php
+include_once("../../../server/utils/tokens.php");
+
+$token = verifyAccessToken();
+if (!$token) {
+    header("Location: /client/pages/auth/login.php");
+    die();
+}
+?>
 
 
 <div class="monomemo-home">

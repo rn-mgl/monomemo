@@ -8,13 +8,6 @@ include_once("../../utils/tokens.php");
 
 <?php
 
-$token = verifyAccessToken();
-
-if (!$token) {
-    header("Location: /client/pages/auth/login.php");
-    die();
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     try {
         $noteBy = $_SESSION["id"];

@@ -1,4 +1,13 @@
-<?php include_once("../../components/global/header.comp.php"); ?>
+<?php
+include_once("../../components/global/header.comp.php");
+include_once("../../../server/utils/tokens.php");
+
+$token = verifyAccessToken();
+if (!$token) {
+    header("Location: /client/pages/auth/login.php");
+    die();
+}
+?>
 
 <div id="topnav">
 
@@ -12,7 +21,8 @@
     <div id="profile-container">
         <button id="profile-button"></button>
         <div id="profile-actions-container">
-            <button class="profile-actions-button" id="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out <i class="fa-solid fa-chevron-right"></i></button>
+            <button class="profile-actions-button" id="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log
+                Out <i class="fa-solid fa-chevron-right"></i></button>
         </div>
     </div>
 </div>

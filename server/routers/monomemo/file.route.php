@@ -2,7 +2,6 @@
 <?php
 include_once(__DIR__ . "/../../../vendor/autoload.php");
 include_once("../../database/conn.php");
-include_once("../../utils/tokens.php");
 
 use Dotenv\Dotenv;
 use Cloudinary\Configuration\Configuration;
@@ -13,13 +12,6 @@ $dotenv->safeLoad();
 ?>
 
 <?php
-
-$token = verifyAccessToken();
-
-if (!$token) {
-    header("Location: /client/pages/auth/login.php");
-    die();
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

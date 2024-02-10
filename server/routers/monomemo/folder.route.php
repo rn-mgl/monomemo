@@ -7,12 +7,6 @@ include_once("../../utils/tokens.php");
 
 <?php
 
-$token = verifyAccessToken();
-if (!$token) {
-    header("Location: /client/pages/auth/login.php");
-    die();
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_POST["type"] == "new_folder") {
         $folderUUID = bin2hex(openssl_random_pseudo_bytes(25));
