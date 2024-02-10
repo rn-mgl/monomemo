@@ -24,14 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $result = $conn->execute_query($verifyUser, [$row["user_id"]]);
 
                 if ($result) {
-                    echo json_encode(array("status"=> $result));
+                    echo json_encode(array("status" => $result));
                     die();
                 } else {
-                    echo json_encode(array("status"=> false));
+                    echo json_encode(array("status" => false));
                     die();
                 }
             } else {
-                echo json_encode(array("status"=> false));
+                echo json_encode(array("status" => false));
                 $_SESSION["verifyError"] = "Incorrect verification code";
                 die();
             }

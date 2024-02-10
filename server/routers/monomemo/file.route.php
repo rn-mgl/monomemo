@@ -1,17 +1,17 @@
 <?php session_start() ?>
 <?php
-    include_once(__DIR__ . "/../../../vendor/autoload.php");
-    include_once("../../database/conn.php");
+include_once(__DIR__ . "/../../../vendor/autoload.php");
+include_once("../../database/conn.php");
 
-    use Dotenv\Dotenv;
-    use Cloudinary\Configuration\Configuration;
-    use Cloudinary\Api\Upload\UploadApi;
+use Dotenv\Dotenv;
+use Cloudinary\Configuration\Configuration;
+use Cloudinary\Api\Upload\UploadApi;
 
-    $dotenv = Dotenv::createImmutable(__DIR__ . "/../../..");
-    $dotenv->safeLoad();
+$dotenv = Dotenv::createImmutable(__DIR__ . "/../../..");
+$dotenv->safeLoad();
 ?>
 
-<?php 
+<?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: /client/pages/monomemo/profile.php");
         die();
     }
-    
+
 }
 
 ?>

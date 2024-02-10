@@ -1,27 +1,56 @@
 <?php
-    require_once __DIR__ . "/../../vendor/autoload.php";
+require_once __DIR__ . "/../../vendor/autoload.php";
 
-    use Firebase\JWT\JWT;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
-    use Dotenv\Dotenv;
-    $dotenv = Dotenv::createImmutable(__DIR__ . "/../../");
-    $dotenv->safeLoad();
+use Dotenv\Dotenv;
 
-    function createAccessToken($user) {
-        $now_seconds = time();
+$dotenv = Dotenv::createImmutable(__DIR__ . "/../../");
+$dotenv->safeLoad();
 
-        $payload = ["id" => $user["user_id"], 
-                    "uuid" => $user["user_uuid"], 
-                    "email" => $user["user_email"], 
-                    "exp" => $now_seconds + (60 * 60 * 7)];
-        $encodeJWT = JWT::encode($payload, $_ENV["JWT_SECRET"], "HS256");
+function createAccessToken($user)
+{
+    $now_seconds = time();
 
-        return $encodeJWT;
+    $payload = [
+        "id" => $user["user_id"],
+        "uuid" => $user["user_uuid"],
+        "email" => $user["user_email"],
+        "exp" => $now_seconds + (60 * 60 * 7)
+    ];
+    $encodeJWT = JWT::encode($payload, $_ENV["JWT_SECRET"], "HS256");
+
+    return "Bearer " . $encodeJWT;
+}
+
+function deleteAccessToken()
+{
+    setcookie("token", "", time() - 3600, "/", "localhost", true, true);
+}
+
+function verifyAccessToken()
+{
+
+    if (!isset($_COOKIE["token"])) {
+        return false;
     }
 
-    function deleteAccessToken() {
-        setcookie("token", "", time() - 3600, "/", "localhost", true, true);
+    $candidateToken = $_COOKIE["token"];
+
+    if (!str_starts_with($candidateToken, "Bearer ")) {
+        return false;
     }
+
+    $token = explode(" ", $candidateToken)[1];
+
+    try {
+        $decoded = JWT::decode($token, new Key($_ENV["JWT_SECRET"], "HS256"));
+        return $decoded;
+    } catch (Exception $e) {
+        return false;
+    }
+}
 
 
 ?>
