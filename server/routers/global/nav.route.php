@@ -1,7 +1,18 @@
 <?php session_start() ?>
-<?php include_once("../../database/conn.php") ?>
+<?php
+include_once("../../database/conn.php");
+include_once("../../utils/tokens.php");
+?>
 
 <?php
+
+$token = verifyAccessToken();
+
+if (!$token) {
+    header("Location: /client/pages/auth/login.php");
+    die();
+}
+
 try {
     $uuid = $_SESSION["uuid"];
     $query = "SELECT * FROM users WHERE user_uuid = ?;";
