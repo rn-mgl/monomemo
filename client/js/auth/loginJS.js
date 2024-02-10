@@ -16,6 +16,7 @@ jQuery(function () {
       dataType: "json",
       success: function (response) {
         if (response.status) {
+          console.log(document.cookie);
           window.location.href = "/client/pages/monomemo/home.php";
         }
       },
