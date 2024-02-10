@@ -31,6 +31,7 @@ if (isset($_SESSION["loginError"])) {
         </div>
 
         <button type="submit" id="login-submit" name="submit">Submit</button>
+        <a href="/client/pages/auth/forgot.php" id="forgot-password">Forgot Password?</a>
     </form>
 
     <div class="accent-block" id="login-accent-block"></div>

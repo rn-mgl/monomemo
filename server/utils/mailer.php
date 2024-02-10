@@ -90,4 +90,66 @@ function sendVerificationMail($name, $surname, $emailTo, $verificationCode)
 
 }
 
+function sendPasswordRestMail($name, $surname, $emailTo, $resetToken)
+{
+    try {
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host = $_ENV["MAILER_HOST"];
+        $mail->SMTPAuth = true;
+        $mail->Username = $_ENV["MAILER_USER"];
+        $mail->Password = $_ENV["MAILER_PASS"];
+        $mail->SMTPSecure = $_ENV["MAILER_SECURE"];
+        $mail->Port = $_ENV["MAILER_PORT"];
+
+        $mail->setFrom("rltnslns@gmail.com");
+        $mail->addAddress($emailTo);
+        $mail->isHTML(true);
+
+        $mail->Subject = "MonoMemo Password Reset Request";
+
+        $mail->Body = "
+                    <p>Hello $name $surname,</p>
+    
+                    <p>
+                    We have received a request to reset the password for your MonoMemo 
+                    account associated with the email address $emailTo. 
+                    To ensure the security of your account, please follow the steps below 
+                    to reset your password:
+                    </p>
+    
+                    <p>
+                        Click on the link to access the verification page: 
+                        <a href='http://localhost:3000/client/pages/auth/renew.php?reset_token=$resetToken'>
+                            Reset Password
+                        </a>
+                    </p>
+    
+                    <p>
+                        If you did not initiate this password reset process, 
+                        you can safely disregard this email.
+                    </p>
+
+                    <b>
+                        This code will expire in exactly 24 hours.
+                    </b>
+    
+                    <p>
+                        Best regards,
+                    </p>
+    
+                    <p>
+                        MonoMemo
+                        <br>
+                        rtlnslns@gmail.com
+                    </p>
+                    ";
+
+        $mail->send();
+    } catch (Exception $e) {
+        throw $e;
+    }
+
+}
+
 ?>

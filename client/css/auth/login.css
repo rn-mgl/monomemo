@@ -40,3 +40,13 @@
 .login-image {
     filter: drop-shadow(0 4px 3px rgb(189, 174, 242, 0.2)) drop-shadow(0 2px 2px rgb(189, 174, 242, 0.2));
 }
+
+#forgot-password {
+    font-size: 0.8rem;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+}
+
+#forgot-password:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}

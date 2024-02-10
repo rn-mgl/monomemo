@@ -11,13 +11,13 @@ $dotenv->safeLoad();
 
 function createAccessToken($user)
 {
-    $now_seconds = time();
+    $nowSeconds = time();
 
     $payload = [
         "id" => $user["user_id"],
         "uuid" => $user["user_uuid"],
         "email" => $user["user_email"],
-        "exp" => $now_seconds + (60 * 60 * 7)
+        "exp" => $nowSeconds + (60 * 60 * 7)
     ];
     $encodeJWT = JWT::encode($payload, $_ENV["JWT_SECRET"], "HS256");
 
@@ -50,6 +50,19 @@ function verifyAccessToken()
     } catch (Exception $e) {
         return false;
     }
+}
+
+function createEmailToken($user) {
+    $nowSeconds = time();
+    $payload = [
+        "id" => $user["user_id"],
+        "uuid" => $user["user_uuid"],
+        "email" => $user["user_email"],
+        "exp" => $nowSeconds + (60 * 60 * 1)
+    ];
+
+    $encode = JWT::encode($payload, $_ENV["JWT_SECRET"], "HS256");
+    return $encode;
 }
 
 
