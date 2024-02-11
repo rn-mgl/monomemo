@@ -15,7 +15,9 @@ jQuery(function () {
       data: mappedForgotdata,
       dataType: "json",
       success: function (response) {
-        console.log(response);
+        if (response.status) {
+          window.location.href = "/client/pages/sending.php";
+        }
       },
     });
   });

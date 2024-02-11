@@ -25,12 +25,13 @@ include_once("../../utils/mailer.php");
                 $row = $result->fetch_assoc();
 
                 $token = createEmailToken($row);
-                sendPasswordRestMail($row["user_name"], $row["user_surname"], $row["user_email"], $token);
                 
-                echo json_encode(["status" => "successful"]);
+                echo json_encode(["status" => true]);
+
+                sendPasswordRestMail($row["user_name"], $row["user_surname"], $row["user_email"], $token);
 
             } else {
-                header("Location: /client/pages/auth/forgot.php");
+                echo json_encode(["status" => true]);
                 die();
             }
 

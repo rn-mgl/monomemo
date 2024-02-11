@@ -52,6 +52,15 @@ function verifyAccessToken()
     }
 }
 
+function verifyToken($token) {
+    try {
+        $decoded = JWT::decode($token, new Key($_ENV["JWT_SECRET"], "HS256"));
+        return $decoded;
+    } catch (Exception $e) {
+        return false;
+    }
+}
+
 function createEmailToken($user) {
     $nowSeconds = time();
     $payload = [

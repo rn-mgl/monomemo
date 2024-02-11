@@ -32,6 +32,7 @@
 	<link rel="stylesheet" href="/client/css/auth/verify.css">
 	<link rel="stylesheet" href="/client/css/auth/login.css">
 	<link rel="stylesheet" href="/client/css/auth/forgot.css">
+	<link rel="stylesheet" href="/client/css/auth/renew.css">
 
 	<link rel="stylesheet" href="/client/css/global/nav.css">
 	<link rel="stylesheet" href="/client/css/monomemo/home.css">
