@@ -21,13 +21,14 @@ jQuery(function () {
       data: mappedRenewData,
       dataType: "json",
       success: function (response) {
-        console.log(response);
         if (response.updated) {
+          window.location.href = "/client/pages/auth/login.php";
+        } else {
           window.location.href = "/client/pages/auth/login.php";
         }
       },
       error: function (response) {
-        console.log(response);
+        window.location.href = "/client/pages/auth/login.php";
       },
     });
   });
