@@ -25,20 +25,7 @@ jQuery(function () {
   });
 
   $("#confirm-folder-delete").on("click", function () {
-    $.ajax({
-      type: "POST",
-      url: `/server/routers/monomemo/folder.route.php?folder_uuid=${folderUUID}`,
-      data: { type: "delete_folder" },
-      dataType: "json",
-      success: function (response) {
-        console.log(response);
-        if (response?.folder_from) {
-          window.location.href = `/client/pages/monomemo/folder.php?folder_uuid=${response.folder_from}`;
-        } else {
-          window.location.href = "/client/pages/monomemo/home.php";
-        }
-      },
-    });
+    deleteFolder(folderUUID);
   });
 
   $("#folder-plus-button").on("click", function () {
@@ -296,7 +283,11 @@ function deleteFolder(folderUUID) {
     url: `/server/routers/monomemo/folder.route.php?folder_uuid=${folderUUID}`,
     dataType: "json",
     success: function (response) {
-      console.log("folder deleted");
+      console.log(response);
+      // window.location.href = "/client/pages/monomemo/home.php";
+    },
+    error: function (response) {
+      console.log(response);
     },
   });
 }

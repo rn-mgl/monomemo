@@ -2,6 +2,7 @@
 <?php
 include_once("../../database/conn.php");
 include_once("../../utils/tokens.php");
+include_once("../../utils/common.php");
 
 ?>
 
@@ -88,37 +89,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $folderBy = $_SESSION["id"];
 
         try {
-            $folderQuery = "SELECT f.folder_id, f2.folder_uuid FROM folders AS f
-                            LEFT JOIN folders AS f2
-                            ON f.folder_from = f2.folder_id
-                            AND f.folder_from <> 0
-                            WHERE f.folder_uuid = ?";
+            $folderQuery = "SELECT * FROM folders WHERE folder_uuid = ?";
             $folderResult = $conn->execute_query($folderQuery, [$folderUUID]);
 
             if ($folderResult->num_rows > 0) {
-                $folderRow = $folderResult->fetch_assoc();
-                $folderFrom = $folderRow["folder_uuid"];
 
-                $deleteFolderQuery = "DELETE FROM folders WHERE folder_uuid = ?";
-                $deleteFolderResult = $conn->execute_query($deleteFolderQuery, [$folderUUID]);
+                $row = $folderResult->fetch_assoc();
 
-                $deleteFoldersQuery = "DELETE FROM folders 
-                                        WHERE folder_from NOT IN (
-                                            SELECT folder_id FROM folders 
-                                            WHERE folder_by = ?
-                                        ) AND folder_from <> ?";
-                $deleteFoldersResult = $conn->execute_query($deleteFoldersQuery, [$folderBy, 0]);
+                $child = getAllChildren($row["folder_id"]);
+                $implodedChild = implode(",", $child);
 
                 $deleteNotesQuery = "DELETE FROM notes 
-                                        WHERE note_from NOT IN (
-                                            SELECT folder_id FROM folders 
-                                            WHERE folder_by = ?
-                                        ) AND note_from <> ?";
-                $deleteNotesResult = $conn->execute_query($deleteNotesQuery, [$folderBy, 0]);
+                                        WHERE note_from IN ($implodedChild) 
+                                        AND note_from <> ?;";
+                $deleteNotesResult = $conn->execute_query($deleteNotesQuery, [0]);
 
-                if ($deleteFolderResult) {
-                    echo json_encode(array("folder_from" => $folderRow["folder_uuid"]));
-                }
+                $deleteFolderQuery = "DELETE FROM folders WHERE folder_id IN ($implodedChild);";
+                $deleteFolderResult = $conn->execute_query($deleteFolderQuery, []);
+
+                echo json_encode(array("deleted" => $deleteFolderResult));
 
             } else {
                 header("Location: /client/pages/monomemo/home.php");

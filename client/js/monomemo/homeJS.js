@@ -191,7 +191,10 @@ function deleteFolder(folderUUID) {
     data: { type: "delete_folder" },
     dataType: "json",
     success: function (response) {
-      console.log("folder deleted");
+      console.log(response);
+    },
+    error: function (response) {
+      console.log(response);
     },
   });
 }
